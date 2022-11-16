@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import UIKit
+
+
+protocol AppCoordinator {
+    var parentController: AppCoordinator? { get set }
+    var navigation: UINavigationController { get set }
+    func start()
+}
