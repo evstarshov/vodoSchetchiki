@@ -1,0 +1,6 @@
+framework module Pods_vodoSchetchiki {
+  umbrella header "Pods-vodoSchetchiki-umbrella.h"
+
+  export *
+  module * { export * }
+}
