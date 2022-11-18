@@ -8,15 +8,25 @@
 import Foundation
 import UIKit
 
-class Coordinator: AppCoordinator {
-    var parentController: AppCoordinator?
+class Coordinator {
     
+    // MARK: - Properies
+    // TODO: указать модификаторы доступа (отсортировать публичные и приватные методы и свойства)
+    var parentController: AppCoordinator?
     var navigation: UINavigationController
+    
+    // MARK: - Init
     
     init(navigation: UINavigationController) {
         self.navigation = navigation
     }
+}
+
+
+    // MARK: - AppCoordinator protocol
+extension Coordinator: AppCoordinator {
     
+    // TODO: указать модификатор
     func start() {
         setMainView()
     }
@@ -27,8 +37,5 @@ class Coordinator: AppCoordinator {
         view.coordinator = self
         vc.mainView = view
         navigation.pushViewController(vc, animated: true)
-    
     }
-    
-    
 }
