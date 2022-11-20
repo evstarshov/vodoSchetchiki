@@ -31,8 +31,6 @@ class MainView: UIView {
         return view
     }()
     
-
-    
     private var hotWaterTextField: UITextField = {
         let textField = UITextField()
         textField.indent(size: 20)
@@ -94,7 +92,6 @@ class MainView: UIView {
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(350)
             make.left.equalToSuperview().inset(30)
-            
         }
         
         warningLabel.snp.makeConstraints { make in
@@ -131,7 +128,5 @@ class MainView: UIView {
             make.trailing.equalToSuperview().offset(-60)
             make.height.greaterThanOrEqualTo(60)
         }
-        
     }
-    
 }
