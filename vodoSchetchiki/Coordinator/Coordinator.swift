@@ -28,14 +28,31 @@ extension Coordinator: AppCoordinator {
     
     // TODO: указать модификатор
     func start() {
-        setMainView()
+//        setNavigationControllers()
     }
     
-    private func setMainView() {
-        let vc = MainViewController()
-        let view = MainView()
-        view.coordinator = self
-        vc.mainView = view
-        navigation.pushViewController(vc, animated: true)
-    }
+
+//    private func setMainView() {
+//        let vc = MainViewController()
+//        let view = MainView()
+//        view.coordinator = self
+//        vc.mainView = view
+//        navigation.pushViewController(vc, animated: true)
+//
+//    }
+//
+//    private func setNavigationControllers() -> [UINavigationController] {
+//        let mainVC = MainViewController()
+//        let settingsVC = SettingsViewController()
+//        let statisticsVC = StatisticsViewController()
+//
+//        let mainNC = UINavigationController(rootViewController: mainVC)
+//        let settingsNC = UINavigationController(rootViewController: settingsVC)
+//        let statisticsNC = UINavigationController(rootViewController: statisticsVC)
+//
+//        let setNC = [mainNC, settingsNC, statisticsNC]
+//        return setNC
+//
+//    }
+
 }
