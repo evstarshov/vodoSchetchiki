@@ -8,13 +8,16 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
+    private let settingView = SettingsView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
     }
     
-
-
-
+    override func loadView() {
+        self.view = settingView
+    }
+    
 }
