@@ -48,23 +48,3 @@ extension StatisticsViewController: UICollectionViewDelegate, UICollectionViewDa
         return cell
     }
 }
-
-
-//MARK: - SwiftUI для быстрого просмотра изменений UI
-import SwiftUI
-
-struct StatisticsProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView()
-    }
-
-    struct ContainerView: UIViewControllerRepresentable {
-        func makeUIViewController(context: Context) -> some UIViewController {
-            return StatisticsViewController()
-        }
-
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-
-        }
-    }
-}
