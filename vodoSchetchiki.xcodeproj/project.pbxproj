@@ -17,6 +17,7 @@
 		042B019529255473003EBBF5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B019429255473003EBBF5 /* MainView.swift */; };
 		042B01982925558F003EBBF5 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B01972925558F003EBBF5 /* CoordinatorProtocol.swift */; };
 		042B019A29255599003EBBF5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B019929255599003EBBF5 /* Coordinator.swift */; };
+		04DA0CEE292E57A5009A21BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04DA0CED292E57A5009A21BE /* GoogleService-Info.plist */; };
 		19FC43F1D9DFDD34E9402B39 /* Pods_vodoSchetchikiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BDE7ADD9026A05E01E1222 /* Pods_vodoSchetchikiTests.framework */; };
 		3A63884629215E0800A576A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63884529215E0800A576A3 /* AppDelegate.swift */; };
 		3A63884829215E0800A576A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63884729215E0800A576A3 /* SceneDelegate.swift */; };
@@ -59,6 +60,7 @@
 		042B01972925558F003EBBF5 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		042B019929255599003EBBF5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0494840B0B5F7815DA94F531 /* Pods_vodoSchetchiki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vodoSchetchiki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DA0CED292E57A5009A21BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		07BDE7ADD9026A05E01E1222 /* Pods_vodoSchetchikiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vodoSchetchikiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A63884229215E0800A576A3 /* vodoSchetchiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vodoSchetchiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A63884529215E0800A576A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				3A63884E29215E0A00A576A3 /* Assets.xcassets */,
 				3A63885029215E0A00A576A3 /* LaunchScreen.storyboard */,
 				3A63885329215E0A00A576A3 /* Info.plist */,
+				04DA0CED292E57A5009A21BE /* GoogleService-Info.plist */,
 			);
 			path = vodoSchetchiki;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 			files = (
 				3A63885229215E0A00A576A3 /* LaunchScreen.storyboard in Resources */,
 				3A63884F29215E0A00A576A3 /* Assets.xcassets in Resources */,
+				04DA0CEE292E57A5009A21BE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

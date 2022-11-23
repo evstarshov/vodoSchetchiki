@@ -1,16 +1,76 @@
 PODS:
+  - Firebase/Auth (10.2.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 10.2.0)
+  - Firebase/CoreOnly (10.2.0):
+    - FirebaseCore (= 10.2.0)
+  - Firebase/Database (10.2.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 10.2.0)
+  - FirebaseAuth (10.2.0):
+    - FirebaseCore (~> 10.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GTMSessionFetcher/Core (< 4.0, >= 2.1)
+  - FirebaseCore (10.2.0):
+    - FirebaseCoreInternal (~> 10.0)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GoogleUtilities/Logger (~> 7.8)
+  - FirebaseCoreInternal (10.2.0):
+    - "GoogleUtilities/NSData+zlib (~> 7.8)"
+  - FirebaseDatabase (10.2.0):
+    - FirebaseCore (~> 10.0)
+    - leveldb-library (~> 1.22)
+  - GoogleUtilities/AppDelegateSwizzler (7.10.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (7.10.0):
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/Logger (7.10.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/Network (7.10.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (7.10.0)"
+  - GoogleUtilities/Reachability (7.10.0):
+    - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (3.0.0)
+  - leveldb-library (1.22.1)
+  - PromisesObjC (2.1.1)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - Firebase/Auth
+  - Firebase/Database
   - SnapKit
 
 SPEC REPOS:
   trunk:
+    - Firebase
+    - FirebaseAuth
+    - FirebaseCore
+    - FirebaseCoreInternal
+    - FirebaseDatabase
+    - GoogleUtilities
+    - GTMSessionFetcher
+    - leveldb-library
+    - PromisesObjC
     - SnapKit
 
 SPEC CHECKSUMS:
+  Firebase: a3ea7eba4382afd83808376edb99acdaff078dcf
+  FirebaseAuth: 08e7739244eeae5216d0a3f8d9f16a76be9c252e
+  FirebaseCore: 813838072b797b64f529f3c2ee35e696e5641dd1
+  FirebaseCoreInternal: 091bde13e47bb1c5e9fe397634f3593dc390430f
+  FirebaseDatabase: 61b99b5477c29115e9d4006c6b44a8815a3cc3c3
+  GoogleUtilities: bad72cb363809015b1f7f19beb1f1cd23c589f95
+  GTMSessionFetcher: c1edebe64e9fb4e8f6415d018edf1fd3eac074a1
+  leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 941c32aa37fc34ce2987132a706f2496437fbe8e
+PODFILE CHECKSUM: 9e9098cf4cecc03589f0fc64401218400079c59a
 
 COCOAPODS: 1.11.3

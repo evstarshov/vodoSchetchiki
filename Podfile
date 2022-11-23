@@ -5,7 +5,7 @@ target 'vodoSchetchiki' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for vodoSchetchiki
+  #Pods for vodoSchetchiki
 
   target 'vodoSchetchikiTests' do
     inherit! :search_paths
@@ -15,5 +15,10 @@ target 'vodoSchetchiki' do
   target 'vodoSchetchikiUITests' do
     # Pods for testing
   end
+
+
  pod 'SnapKit' 
+ pod 'Firebase/Auth'
+ pod 'Firebase/Database'
+
 end

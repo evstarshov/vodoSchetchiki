@@ -25,7 +25,7 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
         label.backgroundColor = .blue
         return label
     }()
-    
+        
     private lazy var hotWaterLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .red
