@@ -9,17 +9,21 @@ import UIKit
 
 class StatisticsViewController: UIViewController {
     
+    //MARK: - private properties
+    
     private var statisticsCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createCollectionView()
     }
+    
+    //MARK: - func creating and setup Collection View
 
     private func createCollectionView() {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 200, left: 30, bottom: 400, right: 150)
+        layout.sectionInset = UIEdgeInsets(top: 300, left: 30, bottom: 400, right: 150)
         layout.itemSize = CGSize(width: 50, height: 300)
         
         //TODO: - Нужно понять, как сделать скролл не слева на право, а наоборот

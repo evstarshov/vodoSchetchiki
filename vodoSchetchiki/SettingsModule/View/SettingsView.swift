@@ -9,6 +9,8 @@ import UIKit
 
 class SettingsView: UIView {
     
+    //MARK: - initialize
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -18,6 +20,8 @@ class SettingsView: UIView {
         super.init(coder: coder)
         initialize()
     }
+    
+    //MARK: - creating UI elements
     
     private lazy var settingView: UIView = {
         let view = UIView()
@@ -80,6 +84,8 @@ class SettingsView: UIView {
         return button
     }()
     
+    //MARK: - private func initialize UI elements and setup layuot
+
     private func initialize() {
         self.addSubview(settingView)
         self.addSubview(settingImage)
@@ -90,45 +96,43 @@ class SettingsView: UIView {
         self.addSubview(saveSettingButton)
         
         settingImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(200)
+            make.top.equalToSuperview().inset(200)
             make.centerX.equalToSuperview()
-            make.height.greaterThanOrEqualTo(130)
-            make.width.greaterThanOrEqualTo(130)
+            make.height.width.greaterThanOrEqualTo(130)
         }
         
         usernameTextField.snp.makeConstraints { make in
-            make.top.equalTo(settingImage.snp.bottom).offset(100)
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
+            make.top.equalTo(settingImage).inset(200)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.height.greaterThanOrEqualTo(40)
         }
         
         usersLastNameTextField.snp.makeConstraints { make in
-            make.top.equalTo(usernameTextField.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
+            make.top.equalTo(usernameTextField).inset(50)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.height.greaterThanOrEqualTo(40)
         }
         
         apartmentAddressTextField.snp.makeConstraints { make in
-            make.top.equalTo(usersLastNameTextField.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
+            make.top.equalTo(usersLastNameTextField).inset(50)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.height.greaterThanOrEqualTo(40)
         }
         
         apartmentNumberTextField.snp.makeConstraints { make in
-            make.top.equalTo(apartmentAddressTextField.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
+            make.top.equalTo(apartmentAddressTextField).inset(50)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.height.greaterThanOrEqualTo(40)
         }
         
         saveSettingButton.snp.makeConstraints { make in
-            make.top.equalTo(apartmentNumberTextField.snp.bottom).offset(50)
-            make.leading.equalToSuperview().offset(60)
-            make.trailing.equalToSuperview().offset(-60)
+            make.top.equalTo(apartmentNumberTextField).inset(70)
+            make.leading.trailing.equalToSuperview().inset(60)
             make.height.greaterThanOrEqualTo(60)
+        }
+        
+        settingView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(0)
         }
     }
 }
