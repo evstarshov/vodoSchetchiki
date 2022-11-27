@@ -16,4 +16,9 @@ target 'vodoSchetchiki' do
     # Pods for testing
   end
  pod 'SnapKit' 
+ pod 'Firebase' 
+ pod 'Firebase/Auth'
+ pod 'Firebase/Database'
+ pod 'Firebase/Firestore'
+
 end
