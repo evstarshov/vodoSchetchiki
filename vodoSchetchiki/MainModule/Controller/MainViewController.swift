@@ -9,6 +9,8 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    //MARK: - private properties
+    
     private let mainView = MainView()
         
     override func viewDidLoad() {
@@ -20,7 +22,5 @@ class MainViewController: UIViewController {
         self.view = mainView
 
     }
-
-
 }
 

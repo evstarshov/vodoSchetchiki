@@ -15,6 +15,8 @@ class MainTabBarController: UITabBarController {
         setTabBarAppearance()
     }
     
+    //MARK: - func generate TabBar Controller
+    
     private func generateTabBar() {
         viewControllers = [
             
@@ -30,11 +32,15 @@ class MainTabBarController: UITabBarController {
         ]
     }
     
+    //MARK: - helping func for generate TabBar Controller
+    
     private func genereteViewControllers(viewCOntroller: UIViewController, title: String, image: UIImage?) -> UIViewController {
         viewCOntroller.tabBarItem.title = title
         viewCOntroller.tabBarItem.image = image
         return viewCOntroller
     }
+    
+    //MARK: - Func setup view TabBar Controller
     
     private func setTabBarAppearance() {
         let positionOnX: CGFloat = 10

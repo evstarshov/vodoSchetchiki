@@ -10,8 +10,7 @@ import SnapKit
 
 class MainView: UIView {
     
-    weak var coordinator: Coordinator?
-    
+    //MARK: - initialize
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,15 +22,15 @@ class MainView: UIView {
         initialize()
     }
     
+    //MARK: - creating UI elements
     
-    
-    private var mainView: UIView = {
+    private lazy var mainView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view
     }()
     
-    private var hotWaterTextField: UITextField = {
+    private lazy var hotWaterTextField: UITextField = {
         let textField = UITextField()
         textField.indent(size: 20)
         textField.backgroundColor = .systemGray6
@@ -40,7 +39,7 @@ class MainView: UIView {
         return textField
     }()
     
-    private var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Введите показания"
         label.font = UIFont.systemFont(ofSize: 30)
@@ -48,7 +47,7 @@ class MainView: UIView {
         return label
     }()
     
-    private var coldWaterTextField: UITextField = {
+    private lazy var coldWaterTextField: UITextField = {
         let textField = UITextField()
         textField.indent(size: 20)
         textField.backgroundColor = .systemGray6
@@ -57,7 +56,7 @@ class MainView: UIView {
         return textField
     }()
     
-    private var warningLabel: WarningLabel = {
+    private lazy var warningLabel: WarningLabel = {
         let label = WarningLabel()
         label.text = " Сдайте показания до 20 числа текущего месяца"
         label.font = UIFont.systemFont(ofSize: 25)
@@ -70,7 +69,7 @@ class MainView: UIView {
         return label
     }()
     
-    private var sentIndicationsButton: UIButton = {
+    private lazy var sentIndicationsButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor.mainColor
         button.setTitle("Отправить", for: .normal)
@@ -80,6 +79,7 @@ class MainView: UIView {
         return button
     }()
     
+    //MARK: - private func initialize UI elements and setup layuot
     
     private func initialize() {
         self.addSubview(mainView)
@@ -91,41 +91,34 @@ class MainView: UIView {
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(350)
-            make.left.equalToSuperview().inset(30)
+            make.leading.equalToSuperview().inset(30)
         }
         
         warningLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(200)
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().offset(-30)
+            make.top.equalToSuperview().inset(200)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.height.greaterThanOrEqualTo(100)
         }
         
         hotWaterTextField.snp.makeConstraints { make in
             make.top.equalTo(titleLabel).inset(60)
-            make.left.equalToSuperview().inset(30)
-            make.right.equalToSuperview().inset(30)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.height.greaterThanOrEqualTo(40)
         }
         
         coldWaterTextField.snp.makeConstraints { make in
             make.top.equalTo(hotWaterTextField).inset(60)
-            make.left.equalToSuperview().inset(30)
-            make.right.equalToSuperview().inset(30)
+            make.leading.trailing.equalToSuperview().inset(30)
             make.height.greaterThanOrEqualTo(40)
         }
         
         mainView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(0)
-            make.left.equalToSuperview().offset(0)
-            make.right.equalToSuperview().offset(0)
-            make.bottom.equalToSuperview().offset(0)
+            make.edges.equalToSuperview().inset(0)
         }
         
         sentIndicationsButton.snp.makeConstraints { make in
             make.top.equalTo(coldWaterTextField.snp.bottom).inset(-40)
-            make.leading.equalToSuperview().offset(60)
-            make.trailing.equalToSuperview().offset(-60)
+            make.leading.trailing.equalToSuperview().inset(60)
             make.height.greaterThanOrEqualTo(60)
         }
     }

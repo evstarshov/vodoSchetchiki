@@ -9,11 +9,12 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    //MARK: - private properties
+    
     private let settingView = SettingsView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
     }
     
     override func loadView() {
@@ -21,3 +22,4 @@ class SettingsViewController: UIViewController {
     }
     
 }
+

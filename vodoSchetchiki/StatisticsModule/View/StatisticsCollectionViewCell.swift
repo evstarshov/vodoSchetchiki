@@ -10,6 +10,8 @@ import SnapKit
 
 class StatisticsCollectionViewCell: UICollectionViewCell {
     
+    //MARK: - initialize
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -19,21 +21,23 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
         super.init(coder: coder)
         initialize()
     }
-    //MARK: - элементы UI
+    
+    //MARK: - creating UI elements
+    
     private lazy var coldWaterLabel: UILabel = {
        let label = UILabel()
-        label.backgroundColor = .blue
+        label.backgroundColor = UIColor.labelColdWater
         return label
     }()
     
     private lazy var hotWaterLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .red
+        label.backgroundColor = UIColor.labelHotWater
         return label
     }()
     
-    //MARK: - Функция инициализации элементов View
-    
+    //MARK: - private func initialize UI elements and setup layuot
+
     func initialize() {
         backgroundColor = .white
         self.addSubview(coldWaterLabel)
@@ -45,8 +49,8 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
             
             make.top.equalToSuperview().inset(20)
             make.bottom.equalToSuperview().inset(150)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+//            make.trailing.equalToSuperview()
         }
         
         hotWaterLabel.snp.makeConstraints { make in
@@ -59,7 +63,6 @@ class StatisticsCollectionViewCell: UICollectionViewCell {
             
         }
     }
-    
 }
 
 
