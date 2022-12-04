@@ -1,63 +1,50 @@
 //
-//  MainView.swift
+//  SecondMainView.swift
 //  vodoSchetchiki
 //
-//  Created by Mac on 16.11.2022.
+//  Created by Mac on 04.12.2022.
 //
 
 import UIKit
-import SnapKit
 
-class MainView: UIView {
+final class MainView: UIView {
     
-    //MARK: - initialize
+    //MARK: - Private properties
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initialize()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        initialize()
-    }
-    
-    //MARK: - creating UI elements
-    
-    private lazy var mainView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
-    }()
-    
-    private lazy var hotWaterTextField: UITextField = {
+    private  var hotWaterTextField: UITextField = {
         let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints =  false
         textField.indent(size: 20)
-        textField.backgroundColor = .systemGray6
+        textField.backgroundColor = UIColor.textFieldColor
         textField.layer.cornerRadius = 5
-        textField.placeholder = "Горячая вода"
+        textField.attributedPlaceholder = NSAttributedString(string: "Горячая вода",
+                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         return textField
     }()
     
-    private lazy var titleLabel: UILabel = {
+    private  var titleLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Введите показания"
         label.font = UIFont.systemFont(ofSize: 30)
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         return label
     }()
     
-    private lazy var coldWaterTextField: UITextField = {
+    private  var coldWaterTextField: UITextField = {
         let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.indent(size: 20)
-        textField.backgroundColor = .systemGray6
+        textField.backgroundColor = UIColor.textFieldColor
         textField.layer.cornerRadius = 5
-        textField.placeholder = "Холодная вода"
+        textField.attributedPlaceholder = NSAttributedString(string: "Холодная вода",
+                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         return textField
     }()
     
-    private lazy var warningLabel: WarningLabel = {
+    private  var warningLabel: WarningLabel = {
         let label = WarningLabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = " Сдайте показания до 20 числа текущего месяца"
         label.font = UIFont.systemFont(ofSize: 25)
         label.font = UIFont.preferredFont(forTextStyle: .title3)
@@ -69,9 +56,11 @@ class MainView: UIView {
         return label
     }()
     
-    private lazy var sentIndicationsButton: UIButton = {
+    private  var sentIndicationsButton: UIButton = {
         let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor.mainColor
+        button.addTarget(MainView.self, action: #selector(sendNotification), for: .touchUpInside)
         button.setTitle("Отправить", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 16
@@ -79,47 +68,59 @@ class MainView: UIView {
         return button
     }()
     
-    //MARK: - private func initialize UI elements and setup layuot
+    //MARK: - Constraction
     
-    private func initialize() {
-        self.addSubview(mainView)
-        self.addSubview(hotWaterTextField)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupView()
+    }
+    
+    //MARK: - Private functions
+    
+    @objc private func sendNotification() {
+        NotificationCenter.default.post(name: Notification.Name("Send"), object: nil)
+    }
+    
+    private func setupView() {
         self.addSubview(titleLabel)
+        self.addSubview(hotWaterTextField)
         self.addSubview(coldWaterTextField)
         self.addSubview(warningLabel)
         self.addSubview(sentIndicationsButton)
+        self.backgroundColor = .white
         
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(350)
-            make.leading.equalToSuperview().inset(30)
-        }
-        
-        warningLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(200)
-            make.leading.trailing.equalToSuperview().inset(30)
-            make.height.greaterThanOrEqualTo(100)
-        }
-        
-        hotWaterTextField.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel).inset(60)
-            make.leading.trailing.equalToSuperview().inset(30)
-            make.height.greaterThanOrEqualTo(40)
-        }
-        
-        coldWaterTextField.snp.makeConstraints { make in
-            make.top.equalTo(hotWaterTextField).inset(60)
-            make.leading.trailing.equalToSuperview().inset(30)
-            make.height.greaterThanOrEqualTo(40)
-        }
-        
-        mainView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(0)
-        }
-        
-        sentIndicationsButton.snp.makeConstraints { make in
-            make.top.equalTo(coldWaterTextField.snp.bottom).inset(-40)
-            make.leading.trailing.equalToSuperview().inset(60)
-            make.height.greaterThanOrEqualTo(60)
-        }
+        NSLayoutConstraint.activate([
+            
+            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 150),
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            
+            warningLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 100),
+            warningLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            warningLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            warningLabel.heightAnchor.constraint(equalToConstant: 100),
+            
+            hotWaterTextField.topAnchor.constraint(equalTo: warningLabel.bottomAnchor, constant: 30),
+            hotWaterTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            hotWaterTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            hotWaterTextField.heightAnchor.constraint(equalToConstant: 40),
+            
+            coldWaterTextField.topAnchor.constraint(equalTo: hotWaterTextField.bottomAnchor, constant: 30),
+            coldWaterTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            coldWaterTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            coldWaterTextField.heightAnchor.constraint(equalToConstant: 40),
+            
+            sentIndicationsButton.topAnchor.constraint(equalTo: coldWaterTextField.bottomAnchor, constant: 40),
+            sentIndicationsButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 60),
+            sentIndicationsButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -60),
+            sentIndicationsButton.heightAnchor.constraint(equalToConstant: 60)
+            
+        ])
     }
 }

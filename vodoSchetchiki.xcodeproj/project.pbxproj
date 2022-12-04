@@ -14,9 +14,9 @@
 		0410A7662925739B0069A28B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410A7652925739B0069A28B /* MainTabBarController.swift */; };
 		0410A769292584A70069A28B /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410A768292584A70069A28B /* UIColor+extension.swift */; };
 		0410A76B29258F630069A28B /* UITextField+extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410A76A29258F630069A28B /* UITextField+extenstion.swift */; };
-		042B019529255473003EBBF5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B019429255473003EBBF5 /* MainView.swift */; };
 		042B01982925558F003EBBF5 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B01972925558F003EBBF5 /* CoordinatorProtocol.swift */; };
 		042B019A29255599003EBBF5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B019929255599003EBBF5 /* Coordinator.swift */; };
+		04A84B16293C90BC001C3FF8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A84B15293C90BC001C3FF8 /* MainView.swift */; };
 		04EA98D529329987007B23CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04EA98D429329987007B23CC /* GoogleService-Info.plist */; };
 		19FC43F1D9DFDD34E9402B39 /* Pods_vodoSchetchikiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BDE7ADD9026A05E01E1222 /* Pods_vodoSchetchikiTests.framework */; };
 		3A63884629215E0800A576A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63884529215E0800A576A3 /* AppDelegate.swift */; };
@@ -56,10 +56,10 @@
 		0410A7652925739B0069A28B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		0410A768292584A70069A28B /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		0410A76A29258F630069A28B /* UITextField+extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+extenstion.swift"; sourceTree = "<group>"; };
-		042B019429255473003EBBF5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		042B01972925558F003EBBF5 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		042B019929255599003EBBF5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0494840B0B5F7815DA94F531 /* Pods_vodoSchetchiki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vodoSchetchiki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04A84B15293C90BC001C3FF8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		04EA98D429329987007B23CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		07BDE7ADD9026A05E01E1222 /* Pods_vodoSchetchikiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vodoSchetchikiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A63884229215E0800A576A3 /* vodoSchetchiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vodoSchetchiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,7 +220,7 @@
 		042B01922925544E003EBBF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				042B019429255473003EBBF5 /* MainView.swift */,
+				04A84B15293C90BC001C3FF8 /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -562,9 +562,9 @@
 				0410A769292584A70069A28B /* UIColor+extension.swift in Sources */,
 				0410A76B29258F630069A28B /* UITextField+extenstion.swift in Sources */,
 				0410A75B29256F7A0069A28B /* SettingsView.swift in Sources */,
-				042B019529255473003EBBF5 /* MainView.swift in Sources */,
 				0410A75929256F3A0069A28B /* SettingsViewController.swift in Sources */,
 				042B019A29255599003EBBF5 /* Coordinator.swift in Sources */,
+				04A84B16293C90BC001C3FF8 /* MainView.swift in Sources */,
 				042B01982925558F003EBBF5 /* CoordinatorProtocol.swift in Sources */,
 				0410A7612925732D0069A28B /* StatisticsViewController.swift in Sources */,
 				3A63884629215E0800A576A3 /* AppDelegate.swift in Sources */,
@@ -738,7 +738,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K945D33793;
+				DEVELOPMENT_TEAM = 779ZY47A99;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = vodoSchetchiki/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -766,7 +766,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K945D33793;
+				DEVELOPMENT_TEAM = 779ZY47A99;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = vodoSchetchiki/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
