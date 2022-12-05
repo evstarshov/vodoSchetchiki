@@ -20,10 +20,7 @@ import Foundation
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeDown()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(sendMail),
-                                               name: Notification.Name(rawValue: "Send"),
-                                                object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(sendMail), name: .notificationFromTButton, object: nil)
     }
     
     override func loadView() {
@@ -33,15 +30,17 @@ import Foundation
      
       @objc private func sendMail(notification: Notification) {
           if MFMailComposeViewController.canSendMail() {
+              print("It works")
               let mail = MFMailComposeViewController()
               mail.mailComposeDelegate = self
-
+              
               //TODO: - Нужно узнать почту на которую будет отправляться письма
               mail.setToRecipients(["email@mail.com"])
               //TODO: - Нужно реализовать передачу данных (Имя, номер квартиры), что б добавить их в заголовок письма
               mail.setSubject("Показания счетчиков")
               //TODO: - Нужно реализовать передачу данных с textField
               mail.setMessageBody("Холодная вода: , Горячая вода:.", isHTML: true)
+              self.present(mail, animated: true)
           } else {
               //TODO: - Нужно создать алерт
               print("Error")

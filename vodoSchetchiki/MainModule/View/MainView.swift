@@ -60,7 +60,7 @@ final class MainView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor.mainColor
-        button.addTarget(MainView.self, action: #selector(sendNotification), for: .touchUpInside)
+        button.addTarget(self, action: #selector(sendNotification), for: .touchUpInside)
         button.setTitle("Отправить", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 16
@@ -83,7 +83,7 @@ final class MainView: UIView {
     //MARK: - Private functions
     
     @objc private func sendNotification() {
-        NotificationCenter.default.post(name: Notification.Name("Send"), object: nil)
+        NotificationCenter.default.post(name: .notificationFromTButton, object: nil)
     }
     
     private func setupView() {
