@@ -19,7 +19,7 @@ extension UIColor {
     }
     
     static var tabBarItemLight: UIColor {
-        #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.6244890901)
+        #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
     static var maimViewGradientStartColor: UIColor {
@@ -36,6 +36,10 @@ extension UIColor {
     
     static var labelHotWater: UIColor {
         #colorLiteral(red: 0.932446897, green: 0, blue: 0, alpha: 0.8454172563)
+    }
+    
+    static var textFieldColor: UIColor {
+        #colorLiteral(red: 0.3448092937, green: 0.3448093534, blue: 0.3448092937, alpha: 0.2022972885)
     }
 }
 

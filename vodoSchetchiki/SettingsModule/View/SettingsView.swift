@@ -9,27 +9,9 @@ import UIKit
 
 class SettingsView: UIView {
     
-    //MARK: - initialize
+    //MARK: - Privete properties
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initialize()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        initialize()
-    }
-    
-    //MARK: - creating UI elements
-    
-    private lazy var settingView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
-    }()
-    
-    private lazy var settingImage: UIImageView = {
+    private var settingImage: UIImageView = {
         let image = UIImageView()
         image.layer.masksToBounds = true
         image.tintColor = UIColor.mainColor
@@ -38,44 +20,53 @@ class SettingsView: UIView {
         return image
     }()
     
-    private lazy var usernameTextField: UITextField = {
+    private var usernameTextField: UITextField = {
         let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.indent(size: 20)
-        textField.backgroundColor = .systemGray6
+        textField.backgroundColor = UIColor.textFieldColor
         textField.layer.cornerRadius = 5
-        textField.placeholder = "Ваше имя"
+        textField.attributedPlaceholder = NSAttributedString(string: "Ваше имя",
+                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         return textField
     }()
     
-    private lazy var usersLastNameTextField: UITextField = {
+    private var usersLastNameTextField: UITextField = {
         let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.indent(size: 20)
-        textField.backgroundColor = .systemGray6
+        textField.backgroundColor = UIColor.textFieldColor
         textField.layer.cornerRadius = 5
-        textField.placeholder = "Ваша фамилия"
+        textField.attributedPlaceholder = NSAttributedString(string: "Ваша фамилия",
+                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         return textField
     }()
     
-    private lazy var apartmentAddressTextField: UITextField = {
+    private var apartmentAddressTextField: UITextField = {
         let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.indent(size: 20)
-        textField.backgroundColor = .systemGray6
+        textField.backgroundColor = UIColor.textFieldColor
         textField.layer.cornerRadius = 5
-        textField.placeholder = "Ваш адрес"
+        textField.attributedPlaceholder = NSAttributedString(string: "Ваш адрес",
+                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         return textField
     }()
     
-    private lazy var apartmentNumberTextField: UITextField = {
+    private var apartmentNumberTextField: UITextField = {
         let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
         textField.indent(size: 20)
-        textField.backgroundColor = .systemGray6
+        textField.backgroundColor = UIColor.textFieldColor
         textField.layer.cornerRadius = 5
-        textField.placeholder = "Номер квартиры"
+        textField.attributedPlaceholder = NSAttributedString(string: "Номер квартиры",
+                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         return textField
     }()
     
-    private lazy var saveSettingButton: UIButton = {
+    private var saveSettingButton: UIButton = {
         let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor.mainColor
         button.setTitle("Сохранить", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -83,56 +74,61 @@ class SettingsView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    //MARK: - private func initialize UI elements and setup layuot
+ 
+    //MARK: - Constraction
 
-    private func initialize() {
-        self.addSubview(settingView)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupView()
+    }
+    
+    //MARK: - Private functions
+    
+    private func setupView() {
         self.addSubview(settingImage)
         self.addSubview(usernameTextField)
         self.addSubview(usersLastNameTextField)
         self.addSubview(apartmentNumberTextField)
         self.addSubview(apartmentAddressTextField)
         self.addSubview(saveSettingButton)
+        self.backgroundColor = .white
         
-        settingImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(200)
-            make.centerX.equalToSuperview()
-            make.height.width.greaterThanOrEqualTo(130)
-        }
-        
-        usernameTextField.snp.makeConstraints { make in
-            make.top.equalTo(settingImage).inset(200)
-            make.leading.trailing.equalToSuperview().inset(30)
-            make.height.greaterThanOrEqualTo(40)
-        }
-        
-        usersLastNameTextField.snp.makeConstraints { make in
-            make.top.equalTo(usernameTextField).inset(50)
-            make.leading.trailing.equalToSuperview().inset(30)
-            make.height.greaterThanOrEqualTo(40)
-        }
-        
-        apartmentAddressTextField.snp.makeConstraints { make in
-            make.top.equalTo(usersLastNameTextField).inset(50)
-            make.leading.trailing.equalToSuperview().inset(30)
-            make.height.greaterThanOrEqualTo(40)
-        }
-        
-        apartmentNumberTextField.snp.makeConstraints { make in
-            make.top.equalTo(apartmentAddressTextField).inset(50)
-            make.leading.trailing.equalToSuperview().inset(30)
-            make.height.greaterThanOrEqualTo(40)
-        }
-        
-        saveSettingButton.snp.makeConstraints { make in
-            make.top.equalTo(apartmentNumberTextField).inset(70)
-            make.leading.trailing.equalToSuperview().inset(60)
-            make.height.greaterThanOrEqualTo(60)
-        }
-        
-        settingView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(0)
-        }
+        NSLayoutConstraint.activate([
+            settingImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            settingImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 150),
+            settingImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 60),
+            settingImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -60),
+            settingImage.heightAnchor.constraint(equalToConstant: 150),
+            
+            usernameTextField.topAnchor.constraint(equalTo: settingImage.bottomAnchor, constant: 30),
+            usernameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            usernameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            usernameTextField.heightAnchor.constraint(equalToConstant: 40),
+            
+            usersLastNameTextField.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 30),
+            usersLastNameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            usersLastNameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            usersLastNameTextField.heightAnchor.constraint(equalToConstant: 40),
+            
+            apartmentNumberTextField.topAnchor.constraint(equalTo: usersLastNameTextField.bottomAnchor, constant: 30),
+            apartmentNumberTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            apartmentNumberTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            apartmentNumberTextField.heightAnchor.constraint(equalToConstant: 40),
+            
+            apartmentAddressTextField.topAnchor.constraint(equalTo: apartmentNumberTextField.bottomAnchor, constant: 30),
+            apartmentAddressTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            apartmentAddressTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            apartmentAddressTextField.heightAnchor.constraint(equalToConstant: 40),
+            
+            saveSettingButton.topAnchor.constraint(equalTo: apartmentAddressTextField.bottomAnchor, constant: 40),
+            saveSettingButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            saveSettingButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            saveSettingButton.heightAnchor.constraint(equalToConstant: 60)
+        ])
     }
 }

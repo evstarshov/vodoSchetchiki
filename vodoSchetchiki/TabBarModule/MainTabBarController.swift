@@ -13,9 +13,10 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         generateTabBar()
         setTabBarAppearance()
+        delegate = self
     }
     
-    //MARK: - func generate TabBar Controller
+    //MARK: - Privete function
     
     private func generateTabBar() {
         viewControllers = [
@@ -31,18 +32,19 @@ class MainTabBarController: UITabBarController {
                                     image: UIImage(systemName: "slider.horizontal.3"))
         ]
     }
-    
-    //MARK: - helping func for generate TabBar Controller
-    
+        
     private func genereteViewControllers(viewCOntroller: UIViewController, title: String, image: UIImage?) -> UIViewController {
         viewCOntroller.tabBarItem.title = title
         viewCOntroller.tabBarItem.image = image
         return viewCOntroller
     }
     
-    //MARK: - Func setup view TabBar Controller
-    
     private func setTabBarAppearance() {
+        let app = UITabBarAppearance()
+        app.backgroundEffect = .none
+        app.shadowColor = .clear
+        tabBar.standardAppearance = app
+
         let positionOnX: CGFloat = 10
         let positionOnY: CGFloat = 7
         let weight = tabBar.bounds.width - positionOnX * 2
@@ -54,15 +56,64 @@ class MainTabBarController: UITabBarController {
                                 width: weight,
                                 height: height)
             , cornerRadius: height / 5)
-        
+
         roundLayer.path = bezierPath.cgPath
         tabBar.layer.insertSublayer(roundLayer, at: 0)
         tabBar.itemWidth = weight / 5
         tabBar.itemPositioning = .automatic
-        
+
         roundLayer.fillColor = UIColor.mainColor.cgColor
         tabBar.tintColor = .tabBarItemAccent
-        tabBar.unselectedItemTintColor = .tabBarItemLight
+        tabBar.unselectedItemTintColor = UIColor.tabBarItemLight
     }
 }
 
+// MARK: Extension
+
+extension MainTabBarController: UITabBarControllerDelegate  {
+
+       @objc func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        guard let tabViewControllers = tabBarController.viewControllers,
+              let toIndex = tabViewControllers.firstIndex(of: viewController)
+        else {
+            return false
+        }
+        animateToTab(toIndex: toIndex)
+        return true
+    }
+
+    func animateToTab(toIndex: Int) {
+        guard let tabViewControllers = viewControllers,
+              let selectedVC = selectedViewController else { return }
+
+        guard let fromView = selectedVC.view,
+              let toView = tabViewControllers[toIndex].view,
+              let fromIndex = tabViewControllers.firstIndex(of: selectedVC),
+              fromIndex != toIndex else { return }
+
+        fromView.superview?.addSubview(toView)
+
+        let screenWidth = UIScreen.main.bounds.size.width
+        let scrollRight = toIndex > fromIndex
+        let offset = (scrollRight ? screenWidth : -screenWidth)
+        toView.center = CGPoint(x: fromView.center.x + offset, y: toView.center.y)
+
+        view.isUserInteractionEnabled = false
+
+        UIView.animate(withDuration: 0.45,
+                       delay: 0.0,
+                       usingSpringWithDamping: 1,
+                       initialSpringVelocity: 0,
+                       options: .curveEaseOut,
+                       animations: {
+                        fromView.center = CGPoint(x: fromView.center.x - offset, y: fromView.center.y)
+                        toView.center = CGPoint(x: toView.center.x - offset, y: toView.center.y)
+
+                       }, completion: { finished in
+                        fromView.removeFromSuperview()
+                        self.selectedIndex = toIndex
+                        self.view.isUserInteractionEnabled = true
+                       })
+    }
+
+}
