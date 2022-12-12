@@ -7,16 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040BC9822947AC3B007B88FE /* StatisticFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BC9812947AC3B007B88FE /* StatisticFlowLayout.swift */; };
+		040BC9842947ADAE007B88FE /* StatisticsCollectionViewDataSourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BC9832947ADAE007B88FE /* StatisticsCollectionViewDataSourse.swift */; };
 		0410A75929256F3A0069A28B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410A75829256F3A0069A28B /* SettingsViewController.swift */; };
 		0410A75B29256F7A0069A28B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410A75A29256F7A0069A28B /* SettingsView.swift */; };
-		0410A7612925732D0069A28B /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410A7602925732D0069A28B /* StatisticsViewController.swift */; };
-		0410A763292573440069A28B /* StatisticsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410A762292573440069A28B /* StatisticsCollectionViewCell.swift */; };
+		0410A763292573440069A28B /* ColdStatisticsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410A762292573440069A28B /* ColdStatisticsCollectionViewCell.swift */; };
 		0410A7662925739B0069A28B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410A7652925739B0069A28B /* MainTabBarController.swift */; };
 		0410A769292584A70069A28B /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410A768292584A70069A28B /* UIColor+extension.swift */; };
 		0410A76B29258F630069A28B /* UITextField+extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410A76A29258F630069A28B /* UITextField+extenstion.swift */; };
 		042B01982925558F003EBBF5 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B01972925558F003EBBF5 /* CoordinatorProtocol.swift */; };
 		042B019A29255599003EBBF5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B019929255599003EBBF5 /* Coordinator.swift */; };
+		0447D7F7293DED8800DA76F7 /* UIViewController+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447D7F6293DED8800DA76F7 /* UIViewController+extention.swift */; };
+		0447D7F9293FCB8400DA76F7 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447D7F8293FCB8400DA76F7 /* StatisticsViewController.swift */; };
+		045649182940D3C300FAA2C8 /* HotWaterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045649172940D3C300FAA2C8 /* HotWaterCollectionViewCell.swift */; };
 		04A84B16293C90BC001C3FF8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A84B15293C90BC001C3FF8 /* MainView.swift */; };
+		04A84B18293DE8A0001C3FF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04A84B17293DE8A0001C3FF8 /* GoogleService-Info.plist */; };
+		04B300302946511900A27A01 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3002F2946511900A27A01 /* AuthViewController.swift */; };
+		04B30034294658D500A27A01 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B30033294658D500A27A01 /* VerificationViewController.swift */; };
+		04B30036294658E300A27A01 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B30035294658E300A27A01 /* AuthView.swift */; };
+		04B30038294658EA00A27A01 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B30037294658EA00A27A01 /* VerificationView.swift */; };
 		19FC43F1D9DFDD34E9402B39 /* Pods_vodoSchetchikiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BDE7ADD9026A05E01E1222 /* Pods_vodoSchetchikiTests.framework */; };
 		3A63884629215E0800A576A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63884529215E0800A576A3 /* AppDelegate.swift */; };
 		3A63884829215E0800A576A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63884729215E0800A576A3 /* SceneDelegate.swift */; };
@@ -26,7 +35,6 @@
 		3A63885D29215E0A00A576A3 /* vodoSchetchikiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63885C29215E0A00A576A3 /* vodoSchetchikiTests.swift */; };
 		3A63886729215E0A00A576A3 /* vodoSchetchikiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63886629215E0A00A576A3 /* vodoSchetchikiUITests.swift */; };
 		3A63886929215E0A00A576A3 /* vodoSchetchikiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63886829215E0A00A576A3 /* vodoSchetchikiUITestsLaunchTests.swift */; };
-		3ACA2820293CDEBA009251B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3ACA281F293CDEBA009251B8 /* GoogleService-Info.plist */; };
 		3ACA2822293DE632009251B8 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACA2821293DE632009251B8 /* NotificationName.swift */; };
 		3DF068B775E1123C123195E1 /* Pods_vodoSchetchiki_vodoSchetchikiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBDDB7038EB10330523BBA9 /* Pods_vodoSchetchiki_vodoSchetchikiUITests.framework */; };
 		4704F5806133D29B905DD1E1 /* Pods_vodoSchetchiki.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0494840B0B5F7815DA94F531 /* Pods_vodoSchetchiki.framework */; };
@@ -50,17 +58,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040BC9812947AC3B007B88FE /* StatisticFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticFlowLayout.swift; sourceTree = "<group>"; };
+		040BC9832947ADAE007B88FE /* StatisticsCollectionViewDataSourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionViewDataSourse.swift; sourceTree = "<group>"; };
 		0410A75829256F3A0069A28B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0410A75A29256F7A0069A28B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		0410A7602925732D0069A28B /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
-		0410A762292573440069A28B /* StatisticsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionViewCell.swift; sourceTree = "<group>"; };
+		0410A762292573440069A28B /* ColdStatisticsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColdStatisticsCollectionViewCell.swift; sourceTree = "<group>"; };
 		0410A7652925739B0069A28B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		0410A768292584A70069A28B /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		0410A76A29258F630069A28B /* UITextField+extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+extenstion.swift"; sourceTree = "<group>"; };
 		042B01972925558F003EBBF5 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		042B019929255599003EBBF5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		0447D7F6293DED8800DA76F7 /* UIViewController+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extention.swift"; sourceTree = "<group>"; };
+		0447D7F8293FCB8400DA76F7 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		045649172940D3C300FAA2C8 /* HotWaterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotWaterCollectionViewCell.swift; sourceTree = "<group>"; };
 		0494840B0B5F7815DA94F531 /* Pods_vodoSchetchiki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vodoSchetchiki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A84B15293C90BC001C3FF8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		04A84B17293DE8A0001C3FF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		04B3002F2946511900A27A01 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		04B30033294658D500A27A01 /* VerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewController.swift; sourceTree = "<group>"; };
+		04B30035294658E300A27A01 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		04B30037294658EA00A27A01 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		07BDE7ADD9026A05E01E1222 /* Pods_vodoSchetchikiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vodoSchetchikiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A63884229215E0800A576A3 /* vodoSchetchiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vodoSchetchiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A63884529215E0800A576A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +91,6 @@
 		3A63886229215E0A00A576A3 /* vodoSchetchikiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vodoSchetchikiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A63886629215E0A00A576A3 /* vodoSchetchikiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vodoSchetchikiUITests.swift; sourceTree = "<group>"; };
 		3A63886829215E0A00A576A3 /* vodoSchetchikiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vodoSchetchikiUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		3ACA281F293CDEBA009251B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3ACA2821293DE632009251B8 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		3BBDDB7038EB10330523BBA9 /* Pods_vodoSchetchiki_vodoSchetchikiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vodoSchetchiki_vodoSchetchikiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		492EF5D644778DF9BE69FD45 /* Pods-vodoSchetchiki-vodoSchetchikiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vodoSchetchiki-vodoSchetchikiUITests.debug.xcconfig"; path = "Target Support Files/Pods-vodoSchetchiki-vodoSchetchikiUITests/Pods-vodoSchetchiki-vodoSchetchikiUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,14 +142,39 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		0410A75429256E290069A28B /* SettingsModule */ = {
+		040BC9852947B9F8007B88FE /* Verification */ = {
+			isa = PBXGroup;
+			children = (
+				040BC9862947BA0A007B88FE /* Controller */,
+				040BC9872947BA11007B88FE /* View */,
+			);
+			path = Verification;
+			sourceTree = "<group>";
+		};
+		040BC9862947BA0A007B88FE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04B30033294658D500A27A01 /* VerificationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		040BC9872947BA11007B88FE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04B30037294658EA00A27A01 /* VerificationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0410A75429256E290069A28B /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				0410A75529256E970069A28B /* Controller */,
 				0410A75629256E9F0069A28B /* View */,
 				0410A75729256EBB0069A28B /* Presenter */,
 			);
-			path = SettingsModule;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		0410A75529256E970069A28B /* Controller */ = {
@@ -159,20 +200,20 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		0410A75C292572D40069A28B /* StatisticsModule */ = {
+		0410A75C292572D40069A28B /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
 				0410A75D292572FB0069A28B /* Controller */,
 				0410A75F2925730A0069A28B /* View */,
 				0410A75E292573010069A28B /* Presenter */,
 			);
-			path = StatisticsModule;
+			path = Statistics;
 			sourceTree = "<group>";
 		};
 		0410A75D292572FB0069A28B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0410A7602925732D0069A28B /* StatisticsViewController.swift */,
+				0447D7F8293FCB8400DA76F7 /* StatisticsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -187,17 +228,20 @@
 		0410A75F2925730A0069A28B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0410A762292573440069A28B /* StatisticsCollectionViewCell.swift */,
+				0410A762292573440069A28B /* ColdStatisticsCollectionViewCell.swift */,
+				045649172940D3C300FAA2C8 /* HotWaterCollectionViewCell.swift */,
+				040BC9812947AC3B007B88FE /* StatisticFlowLayout.swift */,
+				040BC9832947ADAE007B88FE /* StatisticsCollectionViewDataSourse.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		0410A764292573640069A28B /* TabBarModule */ = {
+		0410A764292573640069A28B /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
 				0410A7652925739B0069A28B /* MainTabBarController.swift */,
 			);
-			path = TabBarModule;
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		0410A767292584740069A28B /* Extension */ = {
@@ -206,18 +250,19 @@
 				0410A768292584A70069A28B /* UIColor+extension.swift */,
 				0410A76A29258F630069A28B /* UITextField+extenstion.swift */,
 				3ACA2821293DE632009251B8 /* NotificationName.swift */,
+				0447D7F6293DED8800DA76F7 /* UIViewController+extention.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		042B01912925543F003EBBF5 /* MainModule */ = {
+		042B01912925543F003EBBF5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				042B019B29255D72003EBBF5 /* Controller */,
 				042B01922925544E003EBBF5 /* View */,
 				042B019329255457003EBBF5 /* Presenter */,
 			);
-			path = MainModule;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		042B01922925544E003EBBF5 /* View */ = {
@@ -252,6 +297,31 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		04B3002C294650A200A27A01 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				04B3002D294650CD00A27A01 /* Controller */,
+				04B3002E294650E600A27A01 /* View */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		04B3002D294650CD00A27A01 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04B3002F2946511900A27A01 /* AuthViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04B3002E294650E600A27A01 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04B30035294658E300A27A01 /* AuthView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3A63883929215E0800A576A3 = {
 			isa = PBXGroup;
 			children = (
@@ -279,16 +349,18 @@
 			children = (
 				0410A767292584740069A28B /* Extension */,
 				042B019629255555003EBBF5 /* Coordinator */,
-				0410A764292573640069A28B /* TabBarModule */,
-				0410A75C292572D40069A28B /* StatisticsModule */,
-				0410A75429256E290069A28B /* SettingsModule */,
-				042B01912925543F003EBBF5 /* MainModule */,
+				0410A764292573640069A28B /* TabBar */,
+				04B3002C294650A200A27A01 /* Auth */,
+				040BC9852947B9F8007B88FE /* Verification */,
+				0410A75C292572D40069A28B /* Statistics */,
+				0410A75429256E290069A28B /* Settings */,
+				042B01912925543F003EBBF5 /* Main */,
 				3A63884529215E0800A576A3 /* AppDelegate.swift */,
 				3A63884729215E0800A576A3 /* SceneDelegate.swift */,
 				3A63884E29215E0A00A576A3 /* Assets.xcassets */,
 				3A63885029215E0A00A576A3 /* LaunchScreen.storyboard */,
 				3A63885329215E0A00A576A3 /* Info.plist */,
-				3ACA281F293CDEBA009251B8 /* GoogleService-Info.plist */,
+				04A84B17293DE8A0001C3FF8 /* GoogleService-Info.plist */,
 			);
 			path = vodoSchetchiki;
 			sourceTree = "<group>";
@@ -430,8 +502,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A63885229215E0A00A576A3 /* LaunchScreen.storyboard in Resources */,
-				3ACA2820293CDEBA009251B8 /* GoogleService-Info.plist in Resources */,
 				3A63884F29215E0A00A576A3 /* Assets.xcassets in Resources */,
+				04A84B18293DE8A0001C3FF8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,18 +632,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A63884A29215E0800A576A3 /* MainViewController.swift in Sources */,
-				0410A763292573440069A28B /* StatisticsCollectionViewCell.swift in Sources */,
+				0410A763292573440069A28B /* ColdStatisticsCollectionViewCell.swift in Sources */,
+				0447D7F9293FCB8400DA76F7 /* StatisticsViewController.swift in Sources */,
+				04B30034294658D500A27A01 /* VerificationViewController.swift in Sources */,
+				0447D7F7293DED8800DA76F7 /* UIViewController+extention.swift in Sources */,
+				04B30038294658EA00A27A01 /* VerificationView.swift in Sources */,
+				04B30036294658E300A27A01 /* AuthView.swift in Sources */,
 				0410A7662925739B0069A28B /* MainTabBarController.swift in Sources */,
+				040BC9842947ADAE007B88FE /* StatisticsCollectionViewDataSourse.swift in Sources */,
 				3ACA2822293DE632009251B8 /* NotificationName.swift in Sources */,
 				0410A769292584A70069A28B /* UIColor+extension.swift in Sources */,
 				0410A76B29258F630069A28B /* UITextField+extenstion.swift in Sources */,
+				045649182940D3C300FAA2C8 /* HotWaterCollectionViewCell.swift in Sources */,
 				0410A75B29256F7A0069A28B /* SettingsView.swift in Sources */,
 				0410A75929256F3A0069A28B /* SettingsViewController.swift in Sources */,
+				040BC9822947AC3B007B88FE /* StatisticFlowLayout.swift in Sources */,
 				042B019A29255599003EBBF5 /* Coordinator.swift in Sources */,
 				04A84B16293C90BC001C3FF8 /* MainView.swift in Sources */,
 				042B01982925558F003EBBF5 /* CoordinatorProtocol.swift in Sources */,
-				0410A7612925732D0069A28B /* StatisticsViewController.swift in Sources */,
 				3A63884629215E0800A576A3 /* AppDelegate.swift in Sources */,
+				04B300302946511900A27A01 /* AuthViewController.swift in Sources */,
 				3A63884829215E0800A576A3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -742,7 +822,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K945D33793;
+				DEVELOPMENT_TEAM = 779ZY47A99;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = vodoSchetchiki/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -754,7 +834,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = evstarshov.vodoSchetchiki.main;
+				PRODUCT_BUNDLE_IDENTIFIER = evstarshov.vodoSchetchiki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -770,7 +850,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = K945D33793;
+				DEVELOPMENT_TEAM = 779ZY47A99;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = vodoSchetchiki/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -782,7 +862,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = evstarshov.vodoSchetchiki.main;
+				PRODUCT_BUNDLE_IDENTIFIER = evstarshov.vodoSchetchiki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

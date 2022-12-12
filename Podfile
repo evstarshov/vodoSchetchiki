@@ -20,5 +20,6 @@ target 'vodoSchetchiki' do
  pod 'Firebase/Auth'
  pod 'Firebase/Database'
  pod 'Firebase/Firestore'
+ pod 'FlagPhoneNumber'
 
 end

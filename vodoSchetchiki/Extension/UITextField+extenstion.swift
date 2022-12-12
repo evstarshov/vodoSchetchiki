@@ -20,9 +20,9 @@ extension UITextField {
 
 //MARK: - With the help of this class I indent the label
 
-class WarningLabel: UILabel {
+class BaseLabel: UILabel {
     
-    var sidePadding = CGFloat(10) // Needed padding, add property observers
+    var sidePadding = CGFloat(10) 
 
     override func sizeToFit() {
         super.sizeToFit()
@@ -30,7 +30,6 @@ class WarningLabel: UILabel {
     }
 
     override func drawText(in rect: CGRect) {
-        print(rect)
         super.drawText(in: rect.insetBy(dx: sidePadding, dy: 0))
         invalidateIntrinsicContentSize()
     }
