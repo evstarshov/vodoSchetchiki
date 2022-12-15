@@ -22,7 +22,6 @@
 		0447D7F7293DED8800DA76F7 /* UIViewController+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447D7F6293DED8800DA76F7 /* UIViewController+extention.swift */; };
 		0447D7F9293FCB8400DA76F7 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447D7F8293FCB8400DA76F7 /* StatisticsViewController.swift */; };
 		045649182940D3C300FAA2C8 /* StatisticsHotWaterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045649172940D3C300FAA2C8 /* StatisticsHotWaterCollectionViewCell.swift */; };
-		049341612948683E00BDAC58 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 049341602948683D00BDAC58 /* GoogleService-Info.plist */; };
 		049341642948B3FA00BDAC58 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049341632948B3FA00BDAC58 /* BaseLabel.swift */; };
 		04A84B16293C90BC001C3FF8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A84B15293C90BC001C3FF8 /* MainView.swift */; };
 		04B300302946511900A27A01 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3002F2946511900A27A01 /* AuthViewController.swift */; };
@@ -30,6 +29,7 @@
 		04B30036294658E300A27A01 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B30035294658E300A27A01 /* AuthView.swift */; };
 		04B30038294658EA00A27A01 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B30037294658EA00A27A01 /* VerificationView.swift */; };
 		19FC43F1D9DFDD34E9402B39 /* Pods_vodoSchetchikiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BDE7ADD9026A05E01E1222 /* Pods_vodoSchetchikiTests.framework */; };
+		3A3E6D9E294B8C43009F57A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A3E6D9D294B8C43009F57A5 /* GoogleService-Info.plist */; };
 		3A63884629215E0800A576A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63884529215E0800A576A3 /* AppDelegate.swift */; };
 		3A63884829215E0800A576A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63884729215E0800A576A3 /* SceneDelegate.swift */; };
 		3A63884A29215E0800A576A3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63884929215E0800A576A3 /* MainViewController.swift */; };
@@ -76,7 +76,6 @@
 		0447D7F6293DED8800DA76F7 /* UIViewController+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extention.swift"; sourceTree = "<group>"; };
 		0447D7F8293FCB8400DA76F7 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		045649172940D3C300FAA2C8 /* StatisticsHotWaterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsHotWaterCollectionViewCell.swift; sourceTree = "<group>"; };
-		049341602948683D00BDAC58 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		049341632948B3FA00BDAC58 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		0494840B0B5F7815DA94F531 /* Pods_vodoSchetchiki.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vodoSchetchiki.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A84B15293C90BC001C3FF8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -85,6 +84,7 @@
 		04B30035294658E300A27A01 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		04B30037294658EA00A27A01 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		07BDE7ADD9026A05E01E1222 /* Pods_vodoSchetchikiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vodoSchetchikiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A3E6D9D294B8C43009F57A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A63884229215E0800A576A3 /* vodoSchetchiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vodoSchetchiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A63884529215E0800A576A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A63884729215E0800A576A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -393,7 +393,7 @@
 				3A63884E29215E0A00A576A3 /* Assets.xcassets */,
 				3A63885029215E0A00A576A3 /* LaunchScreen.storyboard */,
 				3A63885329215E0A00A576A3 /* Info.plist */,
-				049341602948683D00BDAC58 /* GoogleService-Info.plist */,
+				3A3E6D9D294B8C43009F57A5 /* GoogleService-Info.plist */,
 			);
 			path = vodoSchetchiki;
 			sourceTree = "<group>";
@@ -536,7 +536,7 @@
 			files = (
 				3A63885229215E0A00A576A3 /* LaunchScreen.storyboard in Resources */,
 				3A63884F29215E0A00A576A3 /* Assets.xcassets in Resources */,
-				049341612948683E00BDAC58 /* GoogleService-Info.plist in Resources */,
+				3A3E6D9E294B8C43009F57A5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -858,7 +858,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 779ZY47A99;
+				DEVELOPMENT_TEAM = K945D33793;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = vodoSchetchiki/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -886,7 +886,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 779ZY47A99;
+				DEVELOPMENT_TEAM = K945D33793;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = vodoSchetchiki/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

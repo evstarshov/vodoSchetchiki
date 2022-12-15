@@ -37,13 +37,14 @@ extension Coordinator: AppCoordinator {
         let vc = VerificationViewController()
         let view = VerificationView()
         view.coordinator = self
+        vc.coordinatorDelegate = self
         vc.verificationView = view
         navigation.pushViewController(vc, animated: true)
     }
     
-    public func goTabBar() {
+    public func goTabBar(fromVC: VerificationViewController) {
         let tb = MainTabBarController()
-        navigation.pushViewController(tb, animated: true)
+        fromVC.present(tb, animated: true)
     }
     
     //MARK: - Private functions
@@ -52,7 +53,37 @@ extension Coordinator: AppCoordinator {
         let vc = AuthViewController()
         let view = AuthView()
         view.coordinator = self
+        vc.coordinatorDelegate = self
         vc.authView = view
         navigation.pushViewController(vc, animated: true)
+    }
+    
+    private func goToVerification(fromVC: AuthViewController, verificationID: String) {
+        let vc = VerificationViewController()
+        let view = VerificationView()
+        vc.verificationView = view
+        vc.verificationView?.verificationID = verificationID
+        vc.view = view
+        vc.modalPresentationStyle = .overFullScreen
+        vc.coordinatorDelegate = self
+        fromVC.present(vc, animated: true)
+    }
+}
+
+
+extension Coordinator: VerificationViewDelegate {
+    
+    func goToMain(from: VerificationViewController) {
+        goTabBar(fromVC: from)
+    }
+    
+    
+}
+
+
+extension Coordinator: AuthViewControllerDelegate {
+    
+    func showVerificationView(from: AuthViewController, verificationID: String) {
+        goToVerification(fromVC: from, verificationID: verificationID)
     }
 }

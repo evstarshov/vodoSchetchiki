@@ -9,6 +9,10 @@ import UIKit
 import FlagPhoneNumber
 import FirebaseAuth
 
+protocol AuthViewControllerDelegate: AnyObject {
+    func showVerificationView(from: AuthViewController, verificationID: String)
+}
+
 class AuthViewController: UIViewController {
     
     //MARK: -  Properties
@@ -16,6 +20,8 @@ class AuthViewController: UIViewController {
     var authView: AuthView?
     var coordinator: Coordinator?
     var phoneNumber: String!
+    
+    weak var coordinatorDelegate: AuthViewControllerDelegate?
     
     //MARK: - Private properties
     
@@ -48,11 +54,7 @@ class AuthViewController: UIViewController {
     }
     
     private func goToVerification(verificationID: String) {
-        let vc = VerificationViewController()
-        let view = VerificationView()
-        view.verificationID = verificationID
-        vc.view = view
-        present(vc, animated: true)
+        coordinatorDelegate?.showVerificationView(from: self, verificationID: verificationID)
     }
     
     private func configure() {

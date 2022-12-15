@@ -8,7 +8,9 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
-			<array/>
+			<array>
+				<string>com.googleusercontent.apps.561098640257-grlvjtmabavmsqb0rnh46bd7nmj2atut</string>
+			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>

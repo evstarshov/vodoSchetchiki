@@ -74,7 +74,7 @@ class VerificationView: UIView {
             if error != nil {
                 print(error ?? "Shit")
             } else {
-                self.gotNextStep()
+                NotificationCenter.default.post(name: .notificationTabBar, object: nil)
             }
         }
     }
@@ -84,6 +84,7 @@ class VerificationView: UIView {
         let view = MainView()
         vc.view = view
         let main = VerificationViewController()
+        vc.modalPresentationStyle = .fullScreen
         main.present(vc, animated: true)
     }
     
