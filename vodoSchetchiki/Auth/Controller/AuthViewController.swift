@@ -7,6 +7,7 @@
 
 import UIKit
 import FlagPhoneNumber
+import FirebaseAuth
 
 class AuthViewController: UIViewController {
     
@@ -14,7 +15,7 @@ class AuthViewController: UIViewController {
     
     var authView: AuthView?
     var coordinator: Coordinator?
-    var phoneNumber: String?
+    var phoneNumber: String!
     
     //MARK: - Private properties
     
@@ -29,9 +30,30 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        NotificationCenter.default.addObserver(self, selector: #selector(sendVerificationCode), name: .notificationVerification, object: nil)
     }
     
     //MARK: - Private functions
+    
+    @objc private func sendVerificationCode(nitification: Notification) {
+        
+        guard let phoneNumber = phoneNumber else { return }
+        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationID, error in
+            if error != nil {
+                print(error ?? "Shit..")
+            } else {
+                self.goToVerification(verificationID: verificationID ?? "")
+            }
+        }
+    }
+    
+    private func goToVerification(verificationID: String) {
+        let vc = VerificationViewController()
+        let view = VerificationView()
+        view.verificationID = verificationID
+        vc.view = view
+        present(vc, animated: true)
+    }
     
     private func configure() {
         listController = FPNCountryListViewController(style: .grouped)

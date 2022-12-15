@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ColdStatisticsCollectionViewCell: UICollectionViewCell {
+class StatisticsColdWaterCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Privete properties
     
@@ -34,7 +34,7 @@ class ColdStatisticsCollectionViewCell: UICollectionViewCell {
     //MARK: - Private functions
 
     func setupView() {
-        backgroundColor = .black
+        backgroundColor = .white
         addSubview(coldWaterLabel)
         
         coldWaterLabel.topAnchor.constraint(equalTo: topAnchor, constant: 110).isActive = true

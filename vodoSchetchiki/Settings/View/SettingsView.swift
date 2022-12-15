@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SettingsView: UIView {
+    
+    //MARK: - Properties
+    
+    var coordinator: Coordinator?
     
     //MARK: - Privete properties
     
@@ -74,6 +79,16 @@ class SettingsView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    private var exitButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "ExitImage"), for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
  
     //MARK: - Constraction
 
@@ -89,45 +104,61 @@ class SettingsView: UIView {
     
     //MARK: - Private functions
     
+    @objc private func logOut() {
+        do {
+            try Auth.auth().signOut()
+            coordinator?.start()
+        } catch {
+            
+        }
+    }
+    
     private func setupView() {
-        self.addSubview(settingImage)
-        self.addSubview(usernameTextField)
-        self.addSubview(usersLastNameTextField)
-        self.addSubview(apartmentNumberTextField)
-        self.addSubview(apartmentAddressTextField)
-        self.addSubview(saveSettingButton)
-        self.backgroundColor = .white
+        addSubview(settingImage)
+        addSubview(usernameTextField)
+        addSubview(usersLastNameTextField)
+        addSubview(apartmentNumberTextField)
+        addSubview(apartmentAddressTextField)
+        addSubview(saveSettingButton)
+        addSubview(exitButton)
+        
+        backgroundColor = .white
         
         NSLayoutConstraint.activate([
-            settingImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            settingImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 150),
-            settingImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 60),
-            settingImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -60),
-            settingImage.heightAnchor.constraint(equalToConstant: 150),
+            exitButton.topAnchor.constraint(equalTo: topAnchor, constant: 50),
+            exitButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            exitButton.heightAnchor.constraint(equalToConstant: 30),
+            exitButton.widthAnchor.constraint(equalToConstant: 30),
+            
+            settingImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            settingImage.topAnchor.constraint(equalTo: topAnchor, constant: 150),
+            settingImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
+            settingImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -100),
+            settingImage.heightAnchor.constraint(equalToConstant: 120),
             
             usernameTextField.topAnchor.constraint(equalTo: settingImage.bottomAnchor, constant: 30),
-            usernameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-            usernameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            usernameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            usernameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             usernameTextField.heightAnchor.constraint(equalToConstant: 40),
             
             usersLastNameTextField.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 30),
-            usersLastNameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-            usersLastNameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            usersLastNameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            usersLastNameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             usersLastNameTextField.heightAnchor.constraint(equalToConstant: 40),
             
             apartmentNumberTextField.topAnchor.constraint(equalTo: usersLastNameTextField.bottomAnchor, constant: 30),
-            apartmentNumberTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-            apartmentNumberTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            apartmentNumberTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            apartmentNumberTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             apartmentNumberTextField.heightAnchor.constraint(equalToConstant: 40),
             
             apartmentAddressTextField.topAnchor.constraint(equalTo: apartmentNumberTextField.bottomAnchor, constant: 30),
-            apartmentAddressTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-            apartmentAddressTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            apartmentAddressTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            apartmentAddressTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             apartmentAddressTextField.heightAnchor.constraint(equalToConstant: 40),
             
             saveSettingButton.topAnchor.constraint(equalTo: apartmentAddressTextField.bottomAnchor, constant: 40),
-            saveSettingButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-            saveSettingButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            saveSettingButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            saveSettingButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             saveSettingButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }

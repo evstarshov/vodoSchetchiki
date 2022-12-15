@@ -14,6 +14,8 @@ class AuthView: UIView {
     //MARK: - Properties
     
     weak var coordinator: Coordinator?
+    weak var controller: AuthViewController?
+    var verificationID: String?
     
     //MARK: - Private properties
     
@@ -55,7 +57,7 @@ class AuthView: UIView {
     //MARK: - Private functions
     
     @objc private func goVerificationView() {
-        coordinator?.goVerificationView()
+        NotificationCenter.default.post(name: .notificationVerification, object: nil)
     }
     
     private func setupView() {

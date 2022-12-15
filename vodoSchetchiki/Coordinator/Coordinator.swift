@@ -33,7 +33,7 @@ extension Coordinator: AppCoordinator {
         goAuthController()
     }
     
-    public func goVerificationView() {
+    public func goVerificationView(verificationID: String) {
         let vc = VerificationViewController()
         let view = VerificationView()
         view.coordinator = self
@@ -42,7 +42,7 @@ extension Coordinator: AppCoordinator {
     }
     
     public func goTabBar() {
-        let tb = MainViewController()
+        let tb = MainTabBarController()
         navigation.pushViewController(tb, animated: true)
     }
     

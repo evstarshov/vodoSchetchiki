@@ -14,7 +14,7 @@ final class MainView: UIView {
     private(set) var hotWaterTextField: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints =  false
-        textField.font = UIFont.systemFont(ofSize: 24)
+        textField.font = UIFont.systemFont(ofSize: 22)
         textField.text = "Горячая вода"
         textField.textColor = .white
         textField.backgroundColor = UIColor.textFieldColor
@@ -35,7 +35,7 @@ final class MainView: UIView {
     private(set) var coldWaterTextField: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.font = UIFont.systemFont(ofSize: 24)
+        textField.font = UIFont.systemFont(ofSize: 22)
         textField.text = "Холодная вода"
         textField.textColor = .white
         textField.backgroundColor = UIColor.textFieldColor

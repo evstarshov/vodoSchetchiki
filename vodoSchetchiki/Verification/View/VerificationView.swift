@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class VerificationView: UIView {
     
     //MARK: - Properties
     
     var coordinator: Coordinator?
+    var verificationID: String?
+    
     
     //MARK: - Private properties
     
@@ -64,8 +67,26 @@ class VerificationView: UIView {
     //MARK: - Private functions
     
     @objc private func goTabBar() {
-        coordinator?.goTabBar()
+        guard let code = verificationTextView.text else { return }
+        let credentional = PhoneAuthProvider.provider().credential(withVerificationID: verificationID ?? "", verificationCode: code)
+        Auth.auth().signIn(with: credentional) { [ weak self ] _, error in
+            guard let self else { return }
+            if error != nil {
+                print(error ?? "Shit")
+            } else {
+                self.gotNextStep()
+            }
+        }
     }
+    
+    private func gotNextStep() {
+        let vc = MainViewController()
+        let view = MainView()
+        vc.view = view
+        let main = VerificationViewController()
+        main.present(vc, animated: true)
+    }
+    
     
     private func setupView() {
         backgroundColor = .white
