@@ -8,19 +8,23 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
+    
+    //MARK: - Properties
+    
+    var coordinator: Coordinator?
         
     override func viewDidLoad() {
         super.viewDidLoad()
         generateTabBar()
         setTabBarAppearance()
         delegate = self
+
     }
     
     //MARK: - Privete function
     
     private func generateTabBar() {
         viewControllers = [
-            
             genereteViewControllers(viewCOntroller: StatisticsViewController(),
                                     title: "Статистика",
                                     image: UIImage(systemName: "person.fill")),
@@ -49,13 +53,12 @@ class MainTabBarController: UITabBarController {
         let positionOnY: CGFloat = 7
         let weight = tabBar.bounds.width - positionOnX * 2
         let height = tabBar.bounds.height + positionOnY * 2
+        let cgRect = CGRect(x: positionOnX,
+                            y: tabBar.bounds.minY - positionOnY,
+                            width: weight,
+                            height: height)
         let roundLayer = CAShapeLayer()
-        let bezierPath = UIBezierPath(
-            roundedRect: CGRect(x: positionOnX,
-                                y: tabBar.bounds.minY - positionOnY,
-                                width: weight,
-                                height: height)
-            , cornerRadius: height / 5)
+        let bezierPath = UIBezierPath(roundedRect: cgRect, cornerRadius: height / 5)
 
         roundLayer.path = bezierPath.cgPath
         tabBar.layer.insertSublayer(roundLayer, at: 0)
@@ -65,6 +68,7 @@ class MainTabBarController: UITabBarController {
         roundLayer.fillColor = UIColor.mainColor.cgColor
         tabBar.tintColor = .tabBarItemAccent
         tabBar.unselectedItemTintColor = UIColor.tabBarItemLight
+        
     }
 }
 

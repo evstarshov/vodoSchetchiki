@@ -11,18 +11,19 @@ final class MainView: UIView {
     
     //MARK: - Private properties
     
-    private  var hotWaterTextField: UITextField = {
-        let textField = UITextField()
+    private(set) var hotWaterTextField: UITextView = {
+        let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints =  false
-        textField.indent(size: 20)
+        textField.font = UIFont.systemFont(ofSize: 24)
+        textField.text = "Горячая вода"
+        textField.textColor = .white
         textField.backgroundColor = UIColor.textFieldColor
         textField.layer.cornerRadius = 5
-        textField.attributedPlaceholder = NSAttributedString(string: "Горячая вода",
-                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        textField.keyboardType = .phonePad
         return textField
     }()
     
-    private  var titleLabel: UILabel = {
+    private var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Введите показания"
@@ -31,19 +32,20 @@ final class MainView: UIView {
         return label
     }()
     
-    private  var coldWaterTextField: UITextField = {
-        let textField = UITextField()
+    private(set) var coldWaterTextField: UITextView = {
+        let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.indent(size: 20)
+        textField.font = UIFont.systemFont(ofSize: 24)
+        textField.text = "Холодная вода"
+        textField.textColor = .white
         textField.backgroundColor = UIColor.textFieldColor
         textField.layer.cornerRadius = 5
-        textField.attributedPlaceholder = NSAttributedString(string: "Холодная вода",
-                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        textField.keyboardType = .phonePad
         return textField
     }()
     
-    private  var warningLabel: WarningLabel = {
-        let label = WarningLabel()
+    private var warningLabel: BaseLabel = {
+        let label = BaseLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = " Сдайте показания до 20 числа текущего месяца"
         label.font = UIFont.systemFont(ofSize: 25)
@@ -56,15 +58,16 @@ final class MainView: UIView {
         return label
     }()
     
-    private  var sentIndicationsButton: UIButton = {
+    private(set) var sentIndicationsButton: UIButton = {
         let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor.mainColor
         button.addTarget(self, action: #selector(sendNotification), for: .touchUpInside)
         button.setTitle("Отправить", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 16
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.isEnabled = false
+        button.alpha = 0.5
         return button
     }()
     
@@ -87,40 +90,39 @@ final class MainView: UIView {
     }
     
     private func setupView() {
-        self.addSubview(titleLabel)
-        self.addSubview(hotWaterTextField)
-        self.addSubview(coldWaterTextField)
-        self.addSubview(warningLabel)
-        self.addSubview(sentIndicationsButton)
-        self.backgroundColor = .white
+        backgroundColor = .white
+        
+        addSubview(titleLabel)
+        addSubview(hotWaterTextField)
+        addSubview(coldWaterTextField)
+        addSubview(warningLabel)
+        addSubview(sentIndicationsButton)
         
         NSLayoutConstraint.activate([
-            
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 150),
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 150),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             
             warningLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 100),
-            warningLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-            warningLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            warningLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            warningLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             warningLabel.heightAnchor.constraint(equalToConstant: 100),
             
             hotWaterTextField.topAnchor.constraint(equalTo: warningLabel.bottomAnchor, constant: 30),
-            hotWaterTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-            hotWaterTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            hotWaterTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            hotWaterTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             hotWaterTextField.heightAnchor.constraint(equalToConstant: 40),
             
             coldWaterTextField.topAnchor.constraint(equalTo: hotWaterTextField.bottomAnchor, constant: 30),
-            coldWaterTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-            coldWaterTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            coldWaterTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            coldWaterTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             coldWaterTextField.heightAnchor.constraint(equalToConstant: 40),
             
             sentIndicationsButton.topAnchor.constraint(equalTo: coldWaterTextField.bottomAnchor, constant: 40),
-            sentIndicationsButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 60),
-            sentIndicationsButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -60),
+            sentIndicationsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
+            sentIndicationsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             sentIndicationsButton.heightAnchor.constraint(equalToConstant: 60)
-            
         ])
     }
 }
