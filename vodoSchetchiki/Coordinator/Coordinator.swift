@@ -16,6 +16,8 @@ class Coordinator {
     internal var parentController: AppCoordinator?
     internal var navigation: UINavigationController
     
+    
+    
     // MARK: - Init
     
     init(navigation: UINavigationController) {
@@ -32,19 +34,20 @@ extension Coordinator: AppCoordinator {
     public func start() {
         goAuthController()
     }
-    
-    public func goVerificationView(verificationID: String) {
-        let vc = VerificationViewController()
-        let view = VerificationView()
-        view.coordinator = self
-        vc.coordinatorDelegate = self
-        vc.verificationView = view
-        navigation.pushViewController(vc, animated: true)
-    }
+
+    /// Этот метод лишний. Зачем ты в двух разных методах создаешь вью и контроллер два раза?
+//    public func goVerificationView(verificationID: String) {
+///        let vc = VerificationViewController() -- Этот контроллер и контроллер в строке 65 два разных объекта! Это не одно и тоже, они имеют разные ссылки в памяти. Их вью тоже разные объекты, создав контроллер, в него же нужно передать вью. Один объект должен содержать другой. Когда мы совершаем переход, мы создаем один контроллер и потом работаем только с ним. Если ты хочешь продолжать с ним работать, тебе нужно позаботатиться о том где этот объект хранить и как получать к нему доступ.  По строчке здесь ты всего лишь создаешь новый экземпляр этого объекта и тебе нужно сконфигурировать его заново и передавать в нужные места.
+//        let view = VerificationView()
+//        view.coordinator = self
+//        vc.coordinatorDelegate = self
+//        vc.verificationView = view
+//        navigation.pushViewController(vc, animated: true)
+//    }
     
     public func goTabBar(fromVC: VerificationViewController) {
         let tb = MainTabBarController()
-        fromVC.present(tb, animated: true)
+        navigation.pushViewController(tb, animated: true)
     }
     
     //MARK: - Private functions
@@ -63,10 +66,9 @@ extension Coordinator: AppCoordinator {
         let view = VerificationView()
         vc.verificationView = view
         vc.verificationView?.verificationID = verificationID
-        vc.view = view
-        vc.modalPresentationStyle = .overFullScreen
+        vc.modalPresentationStyle = .currentContext
         vc.coordinatorDelegate = self
-        fromVC.present(vc, animated: true)
+        navigation.pushViewController(vc, animated: true)
     }
 }
 
