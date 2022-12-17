@@ -12,8 +12,6 @@ class SettingsView: UIView {
     
     //MARK: - Properties
     
-    var coordinator: Coordinator?
-    
     //MARK: - Privete properties
     
     private var settingImage: UIImageView = {
@@ -69,14 +67,9 @@ class SettingsView: UIView {
         return textField
     }()
     
-    private var saveSettingButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor.mainColor
+    private var saveSettingButton: BaseButton = {
+        let button = BaseButton()
         button.setTitle("Сохранить", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 16
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -86,7 +79,6 @@ class SettingsView: UIView {
         button.setImage(UIImage(named: "ExitImage"), for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(logOut), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
  
@@ -107,7 +99,7 @@ class SettingsView: UIView {
     @objc private func logOut() {
         do {
             try Auth.auth().signOut()
-            coordinator?.start()
+            
         } catch {
             
         }

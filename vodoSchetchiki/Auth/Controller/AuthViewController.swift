@@ -11,6 +11,7 @@ import FirebaseAuth
 
 protocol AuthViewControllerDelegate: AnyObject {
     func showVerificationView(from: AuthViewController, verificationID: String)
+    func showTabBarView(from: AuthViewController)
 }
 
 class AuthViewController: UIViewController {
@@ -18,7 +19,6 @@ class AuthViewController: UIViewController {
     //MARK: -  Properties
     
     var authView: AuthView?
-    var coordinator: Coordinator?
     var phoneNumber: String!
     
     weak var coordinatorDelegate: AuthViewControllerDelegate?
@@ -28,6 +28,14 @@ class AuthViewController: UIViewController {
     private var listController: FPNCountryListViewController!
     
     //MARK: - LifeCycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        DispatchQueue.main.async {
+            if Auth.auth().currentUser?.uid != nil {
+                self.coordinatorDelegate?.showTabBarView(from: self)
+            }
+        }
+    }
     
     override func loadView() {
         view = authView

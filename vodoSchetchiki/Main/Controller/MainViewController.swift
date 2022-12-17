@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     //MARK: - private properties
     
     private var mainView = MainView()
+    let presenter = MainPresenter()
     
     //MARK: - Constraction
     
@@ -26,7 +27,6 @@ class MainViewController: UIViewController {
                                                name: .notificationFromTButton,
                                                object: nil)
         delegateTextField()
-
     }
     
     override func loadView() {
@@ -48,6 +48,7 @@ class MainViewController: UIViewController {
             mail.setSubject("Показания счетчиков")
             mail.setMessageBody("Холодная вода: \(mainView.coldWaterTextField.text ?? ""), Горячая вода: \(mainView.coldWaterTextField.text ?? "").", isHTML: true)
             present(mail, animated: true)
+            presenter.saveMeter(coldMeter: mainView.coldWaterTextField.text, hotMeter: mainView.coldWaterTextField.text)
         } else {
             errorAlert(title: "Ошибка", message: "Нет доступа к почте")
         }

@@ -18,7 +18,6 @@ class MainTabBarController: UITabBarController {
         generateTabBar()
         setTabBarAppearance()
         delegate = self
-
     }
     
     //MARK: - Privete function

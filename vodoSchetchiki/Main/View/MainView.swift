@@ -58,16 +58,10 @@ final class MainView: UIView {
         return label
     }()
     
-    private(set) var sentIndicationsButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor.mainColor
+    private(set) var sentIndicationsButton: BaseButton = {
+        let button = BaseButton()
         button.addTarget(self, action: #selector(sendNotification), for: .touchUpInside)
         button.setTitle("Отправить", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 16
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isEnabled = false
-        button.alpha = 0.5
         return button
     }()
     

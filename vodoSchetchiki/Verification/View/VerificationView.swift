@@ -41,14 +41,10 @@ class VerificationView: UIView {
         return text
     }()
     
-    private(set) var sentVerificationCodeButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor.mainColor
+    private(set) var sentVerificationCodeButton: BaseButton = {
+        let button = BaseButton()
         button.addTarget(self, action: #selector(goTabBar), for: .touchUpInside)
         button.setTitle("Проверить код", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 16
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -78,16 +74,6 @@ class VerificationView: UIView {
             }
         }
     }
-    
-    private func gotNextStep() {
-        let vc = MainViewController()
-        let view = MainView()
-        vc.view = view
-        let main = VerificationViewController()
-        vc.modalPresentationStyle = .fullScreen
-        main.present(vc, animated: true)
-    }
-    
     
     private func setupView() {
         backgroundColor = .white

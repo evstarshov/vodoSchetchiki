@@ -23,6 +23,7 @@ class VerificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegateTextView()
         NotificationCenter.default.addObserver(self, selector: #selector(gotoNext), name: .notificationTabBar, object: nil)
     }
     
@@ -33,6 +34,12 @@ class VerificationViewController: UIViewController {
     @objc func gotoNext() {
         print("Next button tapped")
         coordinatorDelegate?.goToMain(from: self)
+    }
+    
+    //MARK: - Private function
+    
+    private func delegateTextView() {
+        verificationView?.verificationTextView.delegate = self
     }
     
 }
@@ -52,7 +59,7 @@ extension VerificationViewController: UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        if verificationView?.verificationTextView.text.count == 6 {
+        if textView.text.count == 6 {
             verificationView?.sentVerificationCodeButton.isEnabled = true
             verificationView?.sentVerificationCodeButton.alpha = 1
         } else {

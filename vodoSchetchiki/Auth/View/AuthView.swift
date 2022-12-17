@@ -12,10 +12,8 @@ import FlagPhoneNumber
 class AuthView: UIView {
     
     //MARK: - Properties
-    
-    weak var coordinator: Coordinator?
-    weak var controller: AuthViewController?
-    var verificationID: String?
+
+//    var verificationID: String?
     
     //MARK: - Private properties
     
@@ -29,15 +27,11 @@ class AuthView: UIView {
         return textField
     }()
     
-    private(set) var phoneNumberButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor.mainColor
+    private(set) var phoneNumberButton: BaseButton = {
+        let button = BaseButton()
         button.setTitle("Отправить", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 16
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isEnabled = false
-        button.alpha = 0.5
+//        button.isEnabled = false
+//        button.alpha = 0.5
         return button
     }()
     
