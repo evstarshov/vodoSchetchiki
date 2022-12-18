@@ -22,7 +22,6 @@
 		0447D7F7293DED8800DA76F7 /* UIViewController+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447D7F6293DED8800DA76F7 /* UIViewController+extention.swift */; };
 		0447D7F9293FCB8400DA76F7 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447D7F8293FCB8400DA76F7 /* StatisticsViewController.swift */; };
 		045649182940D3C300FAA2C8 /* StatisticsHotWaterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045649172940D3C300FAA2C8 /* StatisticsHotWaterCollectionViewCell.swift */; };
-		04643AA7294E05AF0079B176 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04643AA6294E05AF0079B176 /* GoogleService-Info.plist */; };
 		04643AA9294E42350079B176 /* UIButton+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04643AA8294E42350079B176 /* UIButton+extension.swift */; };
 		04643AAB294E43F60079B176 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04643AAA294E43F60079B176 /* BaseButton.swift */; };
 		04643AAD294E55510079B176 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04643AAC294E55510079B176 /* MainPresenter.swift */; };
@@ -33,6 +32,10 @@
 		04B30036294658E300A27A01 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B30035294658E300A27A01 /* AuthView.swift */; };
 		04B30038294658EA00A27A01 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B30037294658EA00A27A01 /* VerificationView.swift */; };
 		19FC43F1D9DFDD34E9402B39 /* Pods_vodoSchetchikiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BDE7ADD9026A05E01E1222 /* Pods_vodoSchetchikiTests.framework */; };
+		3A399D44294F243C00592F90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A399D43294F243C00592F90 /* GoogleService-Info.plist */; };
+		3A399D46294F27D200592F90 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A399D45294F27D200592F90 /* LoginCoordinator.swift */; };
+		3A399D48294F2B1A00592F90 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A399D47294F2B1A00592F90 /* AppCoordinator.swift */; };
+		3A399D4A294F2DA700592F90 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A399D49294F2DA700592F90 /* TabCoordinator.swift */; };
 		3A63884629215E0800A576A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63884529215E0800A576A3 /* AppDelegate.swift */; };
 		3A63884829215E0800A576A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63884729215E0800A576A3 /* SceneDelegate.swift */; };
 		3A63884A29215E0800A576A3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A63884929215E0800A576A3 /* MainViewController.swift */; };
@@ -79,7 +82,6 @@
 		0447D7F6293DED8800DA76F7 /* UIViewController+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extention.swift"; sourceTree = "<group>"; };
 		0447D7F8293FCB8400DA76F7 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		045649172940D3C300FAA2C8 /* StatisticsHotWaterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsHotWaterCollectionViewCell.swift; sourceTree = "<group>"; };
-		04643AA6294E05AF0079B176 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04643AA8294E42350079B176 /* UIButton+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extension.swift"; sourceTree = "<group>"; };
 		04643AAA294E43F60079B176 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		04643AAC294E55510079B176 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
@@ -91,6 +93,10 @@
 		04B30035294658E300A27A01 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		04B30037294658EA00A27A01 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		07BDE7ADD9026A05E01E1222 /* Pods_vodoSchetchikiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vodoSchetchikiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A399D43294F243C00592F90 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3A399D45294F27D200592F90 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		3A399D47294F2B1A00592F90 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		3A399D49294F2DA700592F90 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		3A63884229215E0800A576A3 /* vodoSchetchiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vodoSchetchiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A63884529215E0800A576A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A63884729215E0800A576A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -270,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				0410A7652925739B0069A28B /* MainTabBarController.swift */,
+				3A399D49294F2DA700592F90 /* TabCoordinator.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -292,6 +299,7 @@
 				042B019B29255D72003EBBF5 /* Controller */,
 				042B01922925544E003EBBF5 /* View */,
 				042B019329255457003EBBF5 /* Presenter */,
+				3A399D47294F2B1A00592F90 /* AppCoordinator.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -317,6 +325,7 @@
 			children = (
 				042B01972925558F003EBBF5 /* CoordinatorProtocol.swift */,
 				042B019929255599003EBBF5 /* Coordinator.swift */,
+				3A399D45294F27D200592F90 /* LoginCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -367,7 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				3A63884429215E0800A576A3 /* vodoSchetchiki */,
-				04643AA6294E05AF0079B176 /* GoogleService-Info.plist */,
+				3A399D43294F243C00592F90 /* GoogleService-Info.plist */,
 				3A63885B29215E0A00A576A3 /* vodoSchetchikiTests */,
 				3A63886529215E0A00A576A3 /* vodoSchetchikiUITests */,
 				3A63884329215E0800A576A3 /* Products */,
@@ -544,8 +553,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A63885229215E0A00A576A3 /* LaunchScreen.storyboard in Resources */,
+				3A399D44294F243C00592F90 /* GoogleService-Info.plist in Resources */,
 				3A63884F29215E0A00A576A3 /* Assets.xcassets in Resources */,
-				04643AA7294E05AF0079B176 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,14 +694,17 @@
 				04B30036294658E300A27A01 /* AuthView.swift in Sources */,
 				0410A7662925739B0069A28B /* MainTabBarController.swift in Sources */,
 				040BC9842947ADAE007B88FE /* StatisticsCollectionViewDataSourse.swift in Sources */,
+				3A399D48294F2B1A00592F90 /* AppCoordinator.swift in Sources */,
 				3ACA2822293DE632009251B8 /* NotificationName.swift in Sources */,
 				04643AAB294E43F60079B176 /* BaseButton.swift in Sources */,
 				0410A769292584A70069A28B /* UIColor+extension.swift in Sources */,
 				0410A76B29258F630069A28B /* UITextField+extenstion.swift in Sources */,
+				3A399D4A294F2DA700592F90 /* TabCoordinator.swift in Sources */,
 				045649182940D3C300FAA2C8 /* StatisticsHotWaterCollectionViewCell.swift in Sources */,
 				0410A75B29256F7A0069A28B /* SettingsView.swift in Sources */,
 				0410A75929256F3A0069A28B /* SettingsViewController.swift in Sources */,
 				04643AAD294E55510079B176 /* MainPresenter.swift in Sources */,
+				3A399D46294F27D200592F90 /* LoginCoordinator.swift in Sources */,
 				040BC9822947AC3B007B88FE /* StatisticFlowLayout.swift in Sources */,
 				042B019A29255599003EBBF5 /* Coordinator.swift in Sources */,
 				04A84B16293C90BC001C3FF8 /* MainView.swift in Sources */,
