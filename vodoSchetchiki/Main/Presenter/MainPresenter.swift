@@ -10,10 +10,20 @@ import UIKit
 import FirebaseCore
 import FirebaseFirestore
 
+
+protocol Presentor {
+
+    func saveMeter(coldMeter: String, hotMeter: String)
+}
+
 class MainPresenter {
     
     private var ref: DocumentReference? = nil
     private var db: Firestore!
+    
+}
+
+extension MainPresenter: Presentor {
     
     public func saveMeter(coldMeter: String, hotMeter: String) {
         
@@ -32,5 +42,4 @@ class MainPresenter {
             }
         }
     }
-    
 }

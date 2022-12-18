@@ -30,8 +30,7 @@ class AuthView: UIView {
     private(set) var phoneNumberButton: BaseButton = {
         let button = BaseButton()
         button.setTitle("Отправить", for: .normal)
-//        button.isEnabled = false
-//        button.alpha = 0.5
+        button.startAnimatingPressActions()
         return button
     }()
     

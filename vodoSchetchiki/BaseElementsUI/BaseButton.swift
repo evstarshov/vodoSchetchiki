@@ -17,7 +17,6 @@ class BaseButton: UIButton {
         layer.cornerRadius = 16
         isEnabled = false
         alpha = 0.5
-        startAnimatingPressActions()
     }
     
     required init?(coder: NSCoder) {

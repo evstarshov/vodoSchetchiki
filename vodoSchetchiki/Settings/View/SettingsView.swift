@@ -70,6 +70,7 @@ class SettingsView: UIView {
     private var saveSettingButton: BaseButton = {
         let button = BaseButton()
         button.setTitle("Сохранить", for: .normal)
+        button.startAnimatingPressActions()
         return button
     }()
     
@@ -78,7 +79,7 @@ class SettingsView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "ExitImage"), for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+        button.startAnimatingPressActions()
         return button
     }()
  
@@ -87,22 +88,19 @@ class SettingsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        exitButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupView()
+
     }
     
     //MARK: - Private functions
     
     @objc private func logOut() {
-        do {
-            try Auth.auth().signOut()
-            
-        } catch {
-            
-        }
+        NotificationCenter.default.post(name: .notificationLogOut, object: nil)
     }
     
     private func setupView() {

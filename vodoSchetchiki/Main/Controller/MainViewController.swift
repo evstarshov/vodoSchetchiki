@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     //MARK: - private properties
     
     private var mainView = MainView()
-    let presenter = MainPresenter()
+    private let presenter = MainPresenter()
     
     //MARK: - Constraction
     
@@ -93,11 +93,11 @@ extension MainViewController: UITextViewDelegate {
 
         func textViewDidChange(_ textView: UITextView) {
             if mainView.hotWaterTextField.hasText && mainView.coldWaterTextField.hasText {
-                mainView.sentIndicationsButton.isEnabled = true
-                mainView.sentIndicationsButton.alpha = 1
+                mainView.sentMetersButton.isEnabled = true
+                mainView.sentMetersButton.alpha = 1
             } else {
-                mainView.sentIndicationsButton.isEnabled = false
-                mainView.sentIndicationsButton.alpha = 0.5
+                mainView.sentMetersButton.isEnabled = false
+                mainView.sentMetersButton.alpha = 0.5
             }
         }
     

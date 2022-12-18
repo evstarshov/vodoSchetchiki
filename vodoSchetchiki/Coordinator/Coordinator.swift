@@ -16,8 +16,6 @@ class Coordinator {
     internal var parentController: AppCoordinator?
     internal var navigation: UINavigationController
     
-    
-    
     // MARK: - Init
     
     init(navigation: UINavigationController) {
@@ -45,6 +43,13 @@ extension Coordinator: AppCoordinator {
         navigation.pushViewController(tb, animated: true)
     }
     
+    public func ifUserDeinit(from: SettingsViewController) {
+        let vc = AuthViewController()
+        let view = AuthView()
+        vc.coordinatorDelegate = self
+        vc.authView = view
+        navigation.pushViewController(vc, animated: true)
+    }
     
     //MARK: - Private functions
     
@@ -81,8 +86,16 @@ extension Coordinator: AuthViewControllerDelegate {
         ifUserDidAuth(fromVC: from)
     }
     
-    
     func showVerificationView(from: AuthViewController, verificationID: String) {
         goToVerification(fromVC: from, verificationID: verificationID)
     }
 }
+
+extension Coordinator: SettingsViewControllerDelegate {
+    func deinitUser(from: SettingsViewController) {
+        ifUserDeinit(from: from)
+    }
+    
+    
+}
+

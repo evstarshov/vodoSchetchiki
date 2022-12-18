@@ -45,6 +45,7 @@ class VerificationView: UIView {
         let button = BaseButton()
         button.addTarget(self, action: #selector(goTabBar), for: .touchUpInside)
         button.setTitle("Проверить код", for: .normal)
+        button.startAnimatingPressActions()
         return button
     }()
     
