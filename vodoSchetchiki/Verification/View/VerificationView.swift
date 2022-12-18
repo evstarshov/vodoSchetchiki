@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class VerificationView: UIView {
     
     //MARK: - Properties
     
     var coordinator: Coordinator?
+    var verificationID: String?
+    
     
     //MARK: - Private properties
     
@@ -38,14 +41,11 @@ class VerificationView: UIView {
         return text
     }()
     
-    private(set) var sentVerificationCodeButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor.mainColor
+    private(set) var sentVerificationCodeButton: BaseButton = {
+        let button = BaseButton()
         button.addTarget(self, action: #selector(goTabBar), for: .touchUpInside)
         button.setTitle("Проверить код", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 16
-        button.translatesAutoresizingMaskIntoConstraints = false
+        button.startAnimatingPressActions()
         return button
     }()
     
@@ -64,7 +64,16 @@ class VerificationView: UIView {
     //MARK: - Private functions
     
     @objc private func goTabBar() {
-        coordinator?.goTabBar()
+        guard let code = verificationTextView.text else { return }
+        let credentional = PhoneAuthProvider.provider().credential(withVerificationID: verificationID ?? "", verificationCode: code)
+        Auth.auth().signIn(with: credentional) { [ weak self ] _, error in
+            guard let self else { return }
+            if error != nil {
+                print(error ?? "Shit")
+            } else {
+                NotificationCenter.default.post(name: .notificationTabBar, object: nil)
+            }
+        }
     }
     
     private func setupView() {

@@ -7,20 +7,35 @@
 
 import UIKit
 import FlagPhoneNumber
+import FirebaseAuth
+
+protocol AuthViewControllerDelegate: AnyObject {
+    func showVerificationView(from: AuthViewController, verificationID: String)
+    func showTabBarView(from: AuthViewController)
+}
 
 class AuthViewController: UIViewController {
     
     //MARK: -  Properties
     
     var authView: AuthView?
-    var coordinator: Coordinator?
-    var phoneNumber: String?
+    var phoneNumber: String!
+    
+    weak var coordinatorDelegate: AuthViewControllerDelegate?
     
     //MARK: - Private properties
     
     private var listController: FPNCountryListViewController!
     
     //MARK: - LifeCycle
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        DispatchQueue.main.async {
+            if Auth.auth().currentUser?.uid != nil {
+                self.coordinatorDelegate?.showTabBarView(from: self)
+            }
+        }
+    }
     
     override func loadView() {
         view = authView
@@ -29,9 +44,26 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        NotificationCenter.default.addObserver(self, selector: #selector(sendVerificationCode), name: .notificationVerification, object: nil)
     }
     
     //MARK: - Private functions
+    
+    @objc private func sendVerificationCode(nitification: Notification) {
+        
+        guard let phoneNumber = phoneNumber else { return }
+        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationID, error in
+            if error != nil {
+                print(error ?? "Shit..")
+            } else {
+                self.goToVerification(verificationID: verificationID ?? "")
+            }
+        }
+    }
+    
+    private func goToVerification(verificationID: String) {
+        coordinatorDelegate?.showVerificationView(from: self, verificationID: verificationID)
+    }
     
     private func configure() {
         listController = FPNCountryListViewController(style: .grouped)

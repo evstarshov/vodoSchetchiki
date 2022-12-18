@@ -12,8 +12,8 @@ import FlagPhoneNumber
 class AuthView: UIView {
     
     //MARK: - Properties
-    
-    weak var coordinator: Coordinator?
+
+//    var verificationID: String?
     
     //MARK: - Private properties
     
@@ -27,15 +27,10 @@ class AuthView: UIView {
         return textField
     }()
     
-    private(set) var phoneNumberButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor.mainColor
+    private(set) var phoneNumberButton: BaseButton = {
+        let button = BaseButton()
         button.setTitle("Отправить", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 16
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isEnabled = false
-        button.alpha = 0.5
+        button.startAnimatingPressActions()
         return button
     }()
     
@@ -55,7 +50,7 @@ class AuthView: UIView {
     //MARK: - Private functions
     
     @objc private func goVerificationView() {
-        coordinator?.goVerificationView()
+        NotificationCenter.default.post(name: .notificationVerification, object: nil)
     }
     
     private func setupView() {

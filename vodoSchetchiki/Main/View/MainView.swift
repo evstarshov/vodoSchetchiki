@@ -14,7 +14,7 @@ final class MainView: UIView {
     private(set) var hotWaterTextField: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints =  false
-        textField.font = UIFont.systemFont(ofSize: 24)
+        textField.font = UIFont.systemFont(ofSize: 22)
         textField.text = "Горячая вода"
         textField.textColor = .white
         textField.backgroundColor = UIColor.textFieldColor
@@ -35,7 +35,7 @@ final class MainView: UIView {
     private(set) var coldWaterTextField: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.font = UIFont.systemFont(ofSize: 24)
+        textField.font = UIFont.systemFont(ofSize: 22)
         textField.text = "Холодная вода"
         textField.textColor = .white
         textField.backgroundColor = UIColor.textFieldColor
@@ -58,16 +58,10 @@ final class MainView: UIView {
         return label
     }()
     
-    private(set) var sentIndicationsButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor.mainColor
-        button.addTarget(self, action: #selector(sendNotification), for: .touchUpInside)
+    private(set) var sentMetersButton: BaseButton = {
+        let button = BaseButton()
         button.setTitle("Отправить", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 16
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isEnabled = false
-        button.alpha = 0.5
+        button.startAnimatingPressActions()
         return button
     }()
     
@@ -76,6 +70,8 @@ final class MainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        sentMetersButton.addTarget(self, action: #selector(sendNotification), for: .touchUpInside)
+
     }
     
     required init?(coder: NSCoder) {
@@ -96,7 +92,7 @@ final class MainView: UIView {
         addSubview(hotWaterTextField)
         addSubview(coldWaterTextField)
         addSubview(warningLabel)
-        addSubview(sentIndicationsButton)
+        addSubview(sentMetersButton)
         
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -119,10 +115,10 @@ final class MainView: UIView {
             coldWaterTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             coldWaterTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            sentIndicationsButton.topAnchor.constraint(equalTo: coldWaterTextField.bottomAnchor, constant: 40),
-            sentIndicationsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
-            sentIndicationsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
-            sentIndicationsButton.heightAnchor.constraint(equalToConstant: 60)
+            sentMetersButton.topAnchor.constraint(equalTo: coldWaterTextField.bottomAnchor, constant: 40),
+            sentMetersButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
+            sentMetersButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
+            sentMetersButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HotWaterCollectionViewCell: UICollectionViewCell {
+class StatisticsHotWaterCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Privete properties
     

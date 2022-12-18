@@ -9,50 +9,60 @@ import Foundation
 import UIKit
 import FlagPhoneNumber
 
-class Coordinator {
-    
-    // MARK: - Properies
-    
-    internal var parentController: AppCoordinator?
-    internal var navigation: UINavigationController
-    
-    // MARK: - Init
-    
-    init(navigation: UINavigationController) {
-        self.navigation = navigation
-    }
-}
+/// Deprecated
 
-// MARK: - Extention
+//class AppCoordinator {
+//    
+//    // MARK: - Properies
+//    
+//    internal var parentController: AppCoordinator?
+//    internal var navigation: UINavigationController
+//    
+//    // MARK: - Init
+//    
+//    init(navigation: UINavigationController) {
+//        self.navigation = navigation
+//    }
+//}
+//
+//// MARK: - Extention
+//
+//extension AppCoordinator: Coo {
+//    
+//    //MARK: - Public functions
+//    
+//    public func start() {
+//        goAuthController()
+//    }
+//    
+//    public func goTabBar(fromVC: VerificationViewController) {
+//        let tb = MainTabBarController()
+//        navigation.pushViewController(tb, animated: true)
+//    }
+//    
+//    public func ifUserDidAuth(fromVC: AuthViewController) {
+//        let tb = MainTabBarController()
+//        navigation.pushViewController(tb, animated: true)
+//    }
+//    
+//    public func ifUserDeinit(from: SettingsViewController) {
+//        let vc = AuthViewController()
+//        let view = AuthView()
+//        vc.coordinatorDelegate = self
+//        vc.authView = view
+//        navigation.pushViewController(vc, animated: true)
+//    }
+//    
+//    //MARK: - Private functions
+//    
+//    private func goAuthController() {
+//        let vc = AuthViewController()
+//        let view = AuthView()
+//        vc.coordinatorDelegate = self
+//        vc.authView = view
+//        navigation.pushViewController(vc, animated: true)
+//    }
+//    
+//
+//}
 
-extension Coordinator: AppCoordinator {
-    
-    //MARK: - Public functions
-    
-    public func start() {
-        goAuthController()
-    }
-    
-    public func goVerificationView() {
-        let vc = VerificationViewController()
-        let view = VerificationView()
-        view.coordinator = self
-        vc.verificationView = view
-        navigation.pushViewController(vc, animated: true)
-    }
-    
-    public func goTabBar() {
-        let tb = MainViewController()
-        navigation.pushViewController(tb, animated: true)
-    }
-    
-    //MARK: - Private functions
-    
-    private func goAuthController() {
-        let vc = AuthViewController()
-        let view = AuthView()
-        view.coordinator = self
-        vc.authView = view
-        navigation.pushViewController(vc, animated: true)
-    }
-}
