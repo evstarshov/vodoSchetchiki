@@ -9,7 +9,7 @@ import UIKit
 
 class StatisticsCollectionView: UICollectionView {
     
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+   override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         backgroundColor = .white
         translatesAutoresizingMaskIntoConstraints = false

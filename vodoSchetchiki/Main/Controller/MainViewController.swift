@@ -15,7 +15,8 @@ class MainViewController: UIViewController {
     //MARK: - private properties
     
     private var mainView = MainView()
-    private let presenter = MainPresenter()
+    let service = FirebaseService()
+
     
     //MARK: - Constraction
     
@@ -40,15 +41,11 @@ class MainViewController: UIViewController {
     }
     
     @objc private func sendMail(notification: Notification) {
-        
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients(["email@mail.com"])
-            mail.setSubject("Показания счетчиков")
-            mail.setMessageBody("Холодная вода: \(mainView.coldWaterTextField.text ?? ""), Горячая вода: \(mainView.coldWaterTextField.text ?? "").", isHTML: true)
-            present(mail, animated: true)
-            presenter.saveMeter(coldMeter: mainView.coldWaterTextField.text, hotMeter: mainView.coldWaterTextField.text)
+        let mailController = MailViewController(coldWater: mainView.coldWaterTextField.text ?? "",
+                                                hotWater: mainView.hotWaterTextField.text ?? "")
+        mailController.mainViewControllerDelegate = self
+        if MailViewController.canSendMail() {
+            present(mailController, animated: true)
         } else {
             errorAlert(title: "Ошибка", message: "Нет доступа к почте")
         }
@@ -95,6 +92,10 @@ extension MainViewController: UITextViewDelegate {
             if mainView.hotWaterTextField.hasText && mainView.coldWaterTextField.hasText {
                 mainView.sentMetersButton.isEnabled = true
                 mainView.sentMetersButton.alpha = 1
+                mainView.sentMetersButton.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
+                mainView.sentMetersButton.layer.shadowRadius = 3
+                mainView.sentMetersButton.layer.shadowOpacity = 0.2
+                mainView.sentMetersButton.layer.shadowColor = UIColor.black.cgColor
             } else {
                 mainView.sentMetersButton.isEnabled = false
                 mainView.sentMetersButton.alpha = 0.5
@@ -118,7 +119,10 @@ extension MainViewController: UITextViewDelegate {
         }
         
     }
-    
-    
-    
+}
+
+extension MainViewController: MainViewControllerDelegate {
+    func saveData() {
+        service.saveMeter(coldMeter: mainView.coldWaterTextField.text, hotMeter: mainView.hotWaterTextField.text )
+    }
 }

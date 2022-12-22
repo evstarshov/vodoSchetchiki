@@ -33,9 +33,8 @@ class SettingsViewController: UIViewController {
     @objc private func logOut(notification: Notification) {
         do {
             try Auth.auth().signOut()
-            coordinator?.deinitUser(from: self)
         } catch {
-            errorAlert(title: "Error", message: "")
+            errorAlert(title: "Error", message: "Что то пошло не так")
         }
     }
 }

@@ -79,7 +79,6 @@ class SettingsView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "ExitImage"), for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.startAnimatingPressActions()
         return button
     }()
  
@@ -100,17 +99,22 @@ class SettingsView: UIView {
     //MARK: - Private functions
     
     @objc private func logOut() {
-        NotificationCenter.default.post(name: .notificationLogOut, object: nil)
+        do {
+            try Auth.auth().signOut()
+            print("Вы вышли из аккаунта")
+        } catch {
+           
+        }
     }
     
     private func setupView() {
+        addSubview(exitButton)
         addSubview(settingImage)
         addSubview(usernameTextField)
         addSubview(usersLastNameTextField)
         addSubview(apartmentNumberTextField)
         addSubview(apartmentAddressTextField)
         addSubview(saveSettingButton)
-        addSubview(exitButton)
         
         backgroundColor = .white
         

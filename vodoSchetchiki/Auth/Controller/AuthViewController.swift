@@ -28,6 +28,20 @@ class AuthViewController: UIViewController {
     private var listController: FPNCountryListViewController!
     
     //MARK: - LifeCycle
+    
+    override func loadView() {
+        view = authView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configure()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(sendVerificationCode),
+                                               name: .notificationVerification,
+                                               object: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         DispatchQueue.main.async {
@@ -37,16 +51,6 @@ class AuthViewController: UIViewController {
         }
     }
     
-    override func loadView() {
-        view = authView
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configure()
-        NotificationCenter.default.addObserver(self, selector: #selector(sendVerificationCode), name: .notificationVerification, object: nil)
-    }
-    
     //MARK: - Private functions
     
     @objc private func sendVerificationCode(nitification: Notification) {
@@ -54,7 +58,7 @@ class AuthViewController: UIViewController {
         guard let phoneNumber = phoneNumber else { return }
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationID, error in
             if error != nil {
-                print(error ?? "Shit..")
+                print(error ?? "")
             } else {
                 self.goToVerification(verificationID: verificationID ?? "")
             }
@@ -88,6 +92,10 @@ extension AuthViewController: FPNTextFieldDelegate {
         if isValid {
             authView?.phoneNumberButton.alpha = 1
             authView?.phoneNumberButton.isEnabled = true
+            authView?.phoneNumberButton.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
+            authView?.phoneNumberButton.layer.shadowRadius = 3
+            authView?.phoneNumberButton.layer.shadowOpacity = 0.2
+            authView?.phoneNumberButton.layer.shadowColor = UIColor.black.cgColor
             phoneNumber = textField.getFormattedPhoneNumber(format: .International)
         } else {
             authView?.phoneNumberButton.alpha = 0.5

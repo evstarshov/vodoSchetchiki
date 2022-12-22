@@ -62,6 +62,11 @@ extension VerificationViewController: UITextViewDelegate {
         if textView.text.count == 6 {
             verificationView?.sentVerificationCodeButton.isEnabled = true
             verificationView?.sentVerificationCodeButton.alpha = 1
+            verificationView?.sentVerificationCodeButton.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
+            verificationView?.sentVerificationCodeButton.layer.shadowRadius = 3
+            verificationView?.sentVerificationCodeButton.layer.shadowOpacity = 0.2
+            verificationView?.sentVerificationCodeButton.layer.shadowColor = UIColor.black.cgColor
+
         } else {
             verificationView?.sentVerificationCodeButton.isEnabled = false
             verificationView?.sentVerificationCodeButton.alpha = 0.5

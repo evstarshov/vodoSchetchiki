@@ -12,18 +12,12 @@ protocol LoginCoordinatorProtocol: Coordinator {
     func showAuthController()
 }
 
-
 class LoginCoordinator {
     
     weak var finishDelegate: CoordinatorFinishDelegate?
-    
     var navigationController: UINavigationController
-    
     var childCoordinators: [Coordinator] = []
-    
-    var type: CoordinatorType {
-        .login
-    }
+    var type: CoordinatorType = .login
     
     func start() {
         showAuthController()
@@ -36,7 +30,6 @@ class LoginCoordinator {
     deinit {
         print("LoginCoordinator deinit")
     }
-    
 }
 
 extension LoginCoordinator {
@@ -60,20 +53,17 @@ extension LoginCoordinator: LoginCoordinatorProtocol {
         vc.authView = view
         navigationController.pushViewController(vc, animated: true)
     }
-    
 }
 
 extension LoginCoordinator: AuthViewControllerDelegate {
     func showTabBarView(from: AuthViewController) {
-        self.finish()
+        finish()
     }
-    
     
     func showVerificationView(from: AuthViewController, verificationID: String) {
         goToVerification(fromVC: from, verificationID: verificationID)
     }
 }
-
 
 extension LoginCoordinator: VerificationViewDelegate {
     

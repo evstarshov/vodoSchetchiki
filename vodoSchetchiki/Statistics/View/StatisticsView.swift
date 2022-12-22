@@ -13,6 +13,7 @@ class StatisticsView: UIView {
     
     private let dataSourse = StatisticsCollectionViewDataSourse(reuseIndetifier: "Cold")
     
+    
     private let coldStatisticCollectionView: StatisticsCollectionView = {
         let layout = StatisticFlowLayout()
         let view = StatisticsCollectionView(frame: .zero, collectionViewLayout: layout)
@@ -20,25 +21,24 @@ class StatisticsView: UIView {
     }()
     
     //MARK: - Constraction
-
+    
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: .zero)
         setupView()
-        coldStatisticCollectionView.register(StatisticsColdWaterCollectionViewCell.self, forCellWithReuseIdentifier: "Cold")
-
+        coldStatisticCollectionView.register(StatisticsColdWaterCollectionViewCell.self,
+                                             forCellWithReuseIdentifier: "Cold")
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupView()
+        fatalError("init(coder:) has not been implemented")
     }
-    
+
     //MARK: - Private functions
     
     private func setupView() {
         backgroundColor = .white
         addSubview(coldStatisticCollectionView)
-                
+        
         NSLayoutConstraint.activate([
             coldStatisticCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: 100),
             coldStatisticCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
@@ -56,3 +56,5 @@ class StatisticsView: UIView {
 extension StatisticsView: UICollectionViewDelegate {
     
 }
+
+

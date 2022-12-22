@@ -10,7 +10,7 @@ import UIKit
 class StatisticsColdWaterCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Privete properties
-    
+         
     private lazy var coldWaterLabel: UILabel = {
        let label = UILabel()
         label.backgroundColor = UIColor.labelColdWater
@@ -21,14 +21,13 @@ class StatisticsColdWaterCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Constraction
 
-    override init(frame: CGRect) {
+   override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupView()
+      fatalError("Fatal error")
     }
     
     //MARK: - Private functions

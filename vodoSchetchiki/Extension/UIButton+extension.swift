@@ -24,11 +24,10 @@ extension UIButton {
     
     @objc private func animateUp(sender: UIButton) {
         animate(sender, transform: .identity)
-        sender.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
-        sender.layer.shadowRadius = 5
-        sender.layer.shadowOpacity = 0.3
+        sender.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
+        sender.layer.shadowRadius = 3
+        sender.layer.shadowOpacity = 0.2
         sender.layer.shadowColor = UIColor.black.cgColor
-
     }
     
     private func animate(_ button: UIButton, transform: CGAffineTransform) {
@@ -42,5 +41,5 @@ extension UIButton {
             }, completion: nil)
 
     }
-    
 }
+
