@@ -15,11 +15,11 @@ protocol StatisticsViewModelDelegate: AnyObject {
 class StatisticsViewModel {
     
     var servise = FirebaseService()
-    var meters: [MetersModel]? = []
+    var meters: [MetersModel] = []
     
     var coldMeter: String {
         didSet {
-            viewModelDelegate?.changeMetersData(coldMeter: meters?.first?.coldMeter ?? "Data error")
+            viewModelDelegate?.changeMetersData(coldMeter: meters.first?.coldMeter ?? "Data error")
         }
     }
 
@@ -30,10 +30,11 @@ class StatisticsViewModel {
         }
     }
     
-     func getData() {
+    func getData(success: @escaping ([MetersModel]) -> Void, failture: @escaping (NSError) -> Void) {
         servise.getData(collection: "Meters") { [weak self] data in
             guard let self else { return }
-            self.meters = data
+            self.meters = data ?? []
+            success(data ?? [])
         }
     }
     

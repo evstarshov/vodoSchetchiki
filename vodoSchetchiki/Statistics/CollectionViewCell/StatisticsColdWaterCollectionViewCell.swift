@@ -31,6 +31,10 @@ class StatisticsColdWaterCollectionViewCell: UICollectionViewCell {
       fatalError("Fatal error")
     }
     
+    func configureCell(_ withModel: MetersModel) {
+        coldWaterLabel.text = withModel.coldMeter
+    }
+    
     //MARK: - Private functions
 
     func setupView() {

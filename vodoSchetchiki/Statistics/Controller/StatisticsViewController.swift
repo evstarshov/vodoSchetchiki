@@ -12,7 +12,6 @@ class StatisticsViewController: UIViewController {
     //MARK: - Private properties
     
     let statisticView = StatisticsView()
-    var viewModel = StatisticsViewModel()
     
     
     //MARK: - Constraction
@@ -22,7 +21,7 @@ class StatisticsViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        viewModel.getData()
+        //viewModel.getData()
     }
 
 }

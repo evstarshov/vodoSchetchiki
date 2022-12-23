@@ -11,7 +11,7 @@ class StatisticsView: UIView {
     
     //MARK: - Private prorperties
     
-    private let dataSourse = StatisticsCollectionViewDataSourse(reuseIndetifier: "Cold")
+    var viewModel = StatisticsViewModel()
     
     private let coldStatisticCollectionView: StatisticsCollectionView = {
         let layout = StatisticFlowLayout()
@@ -26,6 +26,8 @@ class StatisticsView: UIView {
         setupView()
         coldStatisticCollectionView.register(StatisticsColdWaterCollectionViewCell.self,
                                              forCellWithReuseIdentifier: "Cold")
+        self.coldStatisticCollectionView.reloadData()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -45,14 +47,35 @@ class StatisticsView: UIView {
             coldStatisticCollectionView.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -100),
         ])
         
-        coldStatisticCollectionView.delegate = self
-        coldStatisticCollectionView.dataSource = dataSourse
+        viewModel.getData { [weak self] model in
+            guard let self else { return }
+            let dataSource = StatisticsCollectionViewDataSourse(reuseIndetifier: "Cold", meters: model)
+            self.coldStatisticCollectionView.delegate = self
+            self.coldStatisticCollectionView.dataSource = dataSource
+            self.coldStatisticCollectionView.reloadData()
+        } failture: { error in
+            print(error.description)
+        }
+        
+        self.coldStatisticCollectionView.delegate = self
+        self.coldStatisticCollectionView.dataSource = self
     }
 }
 
 //MARK: - Extention
 
-extension StatisticsView: UICollectionViewDelegate {
+extension StatisticsView: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.meters.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cold", for: indexPath) as? StatisticsColdWaterCollectionViewCell else { return UICollectionViewCell() }
+        let model = viewModel.meters[indexPath.row]
+        cell.configureCell(model)
+        return cell
+    }
+    
     
 }
 
