@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		040BC9822947AC3B007B88FE /* StatisticFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BC9812947AC3B007B88FE /* StatisticFlowLayout.swift */; };
-		040BC9842947ADAE007B88FE /* StatisticsCollectionViewDataSourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BC9832947ADAE007B88FE /* StatisticsCollectionViewDataSourse.swift */; };
 		040BC98B2947C2A6007B88FE /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BC98A2947C2A6007B88FE /* StatisticsView.swift */; };
 		040BC98D2947C3D7007B88FE /* StatisticsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040BC98C2947C3D7007B88FE /* StatisticsCollectionView.swift */; };
 		0410A75929256F3A0069A28B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410A75829256F3A0069A28B /* SettingsViewController.swift */; };
@@ -71,7 +70,6 @@
 
 /* Begin PBXFileReference section */
 		040BC9812947AC3B007B88FE /* StatisticFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticFlowLayout.swift; sourceTree = "<group>"; };
-		040BC9832947ADAE007B88FE /* StatisticsCollectionViewDataSourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionViewDataSourse.swift; sourceTree = "<group>"; };
 		040BC98A2947C2A6007B88FE /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		040BC98C2947C3D7007B88FE /* StatisticsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionView.swift; sourceTree = "<group>"; };
 		0410A75829256F3A0069A28B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				040BC98C2947C3D7007B88FE /* StatisticsCollectionView.swift */,
-				040BC9832947ADAE007B88FE /* StatisticsCollectionViewDataSourse.swift */,
 				040BC9812947AC3B007B88FE /* StatisticFlowLayout.swift */,
 			);
 			path = CollectionView;
@@ -728,7 +725,6 @@
 				04B30036294658E300A27A01 /* AuthView.swift in Sources */,
 				0410A7662925739B0069A28B /* MainTabBarController.swift in Sources */,
 				04DAA92329506CB300E175DA /* FirebaseService.swift in Sources */,
-				040BC9842947ADAE007B88FE /* StatisticsCollectionViewDataSourse.swift in Sources */,
 				3A399D48294F2B1A00592F90 /* AppCoordinator.swift in Sources */,
 				3ACA2822293DE632009251B8 /* NotificationName.swift in Sources */,
 				04643AAB294E43F60079B176 /* BaseButton.swift in Sources */,

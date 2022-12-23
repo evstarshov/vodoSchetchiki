@@ -21,7 +21,7 @@ class StatisticsViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        //viewModel.getData()
+        
     }
 
 }
