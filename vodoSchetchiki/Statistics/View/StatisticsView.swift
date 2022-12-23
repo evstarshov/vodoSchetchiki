@@ -13,7 +13,6 @@ class StatisticsView: UIView {
     
     private let dataSourse = StatisticsCollectionViewDataSourse(reuseIndetifier: "Cold")
     
-    
     private let coldStatisticCollectionView: StatisticsCollectionView = {
         let layout = StatisticFlowLayout()
         let view = StatisticsCollectionView(frame: .zero, collectionViewLayout: layout)

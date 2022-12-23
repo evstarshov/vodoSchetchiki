@@ -36,6 +36,7 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        swipeDown()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(sendVerificationCode),
                                                name: .notificationVerification,
@@ -52,6 +53,17 @@ class AuthViewController: UIViewController {
     }
     
     //MARK: - Private functions
+    
+    private func swipeDown() {
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.hideKeyboardOnSwipeDown))
+        swipeDown.delegate = self
+        swipeDown.direction =  UISwipeGestureRecognizer.Direction.down
+        self.authView?.addGestureRecognizer(swipeDown)
+    }
+    
+    @objc private func hideKeyboardOnSwipeDown() {
+        view.endEditing(true)
+    }
     
     @objc private func sendVerificationCode(nitification: Notification) {
         
@@ -108,5 +120,11 @@ extension AuthViewController: FPNTextFieldDelegate {
         listController.title = "Страны"
         authView?.phoneNumberTextField.text = ""
         present(navigation, animated: true)
+    }
+}
+
+extension AuthViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return true
     }
 }

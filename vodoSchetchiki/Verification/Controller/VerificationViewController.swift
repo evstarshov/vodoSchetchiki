@@ -23,6 +23,7 @@ class VerificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        swipeDown()
         delegateTextView()
         NotificationCenter.default.addObserver(self, selector: #selector(gotoNext), name: .notificationTabBar, object: nil)
     }
@@ -40,6 +41,17 @@ class VerificationViewController: UIViewController {
     
     private func delegateTextView() {
         verificationView?.verificationTextView.delegate = self
+    }
+    
+    private func swipeDown() {
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.hideKeyboardOnSwipeDown))
+        swipeDown.delegate = self
+        swipeDown.direction =  UISwipeGestureRecognizer.Direction.down
+        self.verificationView?.addGestureRecognizer(swipeDown)
+    }
+    
+    @objc private func hideKeyboardOnSwipeDown() {
+        view.endEditing(true)
     }
     
 }
@@ -71,5 +83,11 @@ extension VerificationViewController: UITextViewDelegate {
             verificationView?.sentVerificationCodeButton.isEnabled = false
             verificationView?.sentVerificationCodeButton.alpha = 0.5
         }
+    }
+}
+
+extension VerificationViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return true
     }
 }

@@ -17,15 +17,26 @@ class VerificationView: UIView {
     
     
     //MARK: - Private properties
+        
+    private var secondView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 30
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.shadowRadius = 5
+        view.layer.shadowOffset = CGSize(width: 1.3, height: 1.3)
+        view.layer.shadowOpacity = 3
+        view.layer.shadowColor = UIColor.black.cgColor
+        return view
+    }()
     
     private var titleLabel: BaseLabel = {
         let label = BaseLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Введите код из смс"
-        label.font = UIFont.systemFont(ofSize: 25)
+        label.font = UIFont.systemFont(ofSize: 30)
         label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.textColor = .white
-        label.backgroundColor = UIColor.mainColor
         label.layer.cornerRadius = 8
         label.layer.masksToBounds = true
         return label
@@ -33,11 +44,15 @@ class VerificationView: UIView {
     
     private(set) var verificationTextView: UITextView = {
         let text = UITextView()
-        text.font = UIFont.systemFont(ofSize: 22)
+        text.font = UIFont.systemFont(ofSize: 30)
         text.backgroundColor = UIColor.textFieldColor
         text.layer.cornerRadius = 5
+        text.textColor = .darkGray
         text.keyboardType = .phonePad
+        text.textAlignment = .center
         text.translatesAutoresizingMaskIntoConstraints = false
+        text.textContentType = .oneTimeCode
+        text.isScrollEnabled = false
         return text
     }()
     
@@ -69,7 +84,7 @@ class VerificationView: UIView {
         Auth.auth().signIn(with: credentional) { [ weak self ] _, error in
             guard let self else { return }
             if error != nil {
-                print(error ?? "Shit")
+                print(error ?? "Error")
             } else {
                 NotificationCenter.default.post(name: .notificationTabBar, object: nil)
             }
@@ -77,22 +92,28 @@ class VerificationView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = .white
-        
+        backgroundColor = UIColor.mainBacgroundColor
+        addSubview(secondView)
         addSubview(titleLabel)
         addSubview(verificationTextView)
         addSubview(sentVerificationCodeButton)
         
         NSLayoutConstraint.activate([
+            
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 200),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             titleLabel.heightAnchor.constraint(equalToConstant: 100),
             
+            secondView.topAnchor.constraint(equalTo: verificationTextView.topAnchor, constant: -60),
+            secondView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            secondView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            secondView.heightAnchor.constraint(equalToConstant: 300),
+            
             verificationTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
             verificationTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             verificationTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            verificationTextView.heightAnchor.constraint(equalToConstant: 100),
+            verificationTextView.heightAnchor.constraint(equalToConstant: 60),
             
             sentVerificationCodeButton.topAnchor.constraint(equalTo: verificationTextView.bottomAnchor, constant: 30),
             sentVerificationCodeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
