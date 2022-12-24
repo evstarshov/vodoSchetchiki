@@ -11,11 +11,50 @@ import FlagPhoneNumber
 
 class AuthView: UIView {
     
-    //MARK: - Properties
-    
-    weak var coordinator: Coordinator?
-    
     //MARK: - Private properties
+    
+    private var catImage: UIImageView = {
+        let image = UIImageView()
+        image.layer.masksToBounds = true
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "welcomeCat")
+        return image
+    }()
+    
+    private var secondView: UIView = {
+       let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 30
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.shadowRadius = 5
+        view.layer.shadowOffset = CGSize(width: 1.3, height: 1.3)
+        view.layer.shadowOpacity = 3
+        view.layer.shadowColor = UIColor.black.cgColor
+        return view
+    }()
+    
+    private var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Добро пожаловать!"
+        label.font = UIFont.systemFont(ofSize: 30)
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.textColor = .white
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private var warningLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Введите ваш номер"
+        label.font = UIFont.systemFont(ofSize: 30)
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.textColor = .white
+        label.numberOfLines = 0
+        return label
+    }()
+
     
     private(set) var phoneNumberTextField: FPNTextField = {
         let textField = FPNTextField()
@@ -27,15 +66,10 @@ class AuthView: UIView {
         return textField
     }()
     
-    private(set) var phoneNumberButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor.mainColor
-        button.setTitle("Отправить", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 16
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isEnabled = false
-        button.alpha = 0.5
+    private(set) var phoneNumberButton: BaseButton = {
+        let button = BaseButton()
+        button.setTitle("Войти", for: .normal)
+        button.startAnimatingPressActions()
         return button
     }()
     
@@ -55,17 +89,41 @@ class AuthView: UIView {
     //MARK: - Private functions
     
     @objc private func goVerificationView() {
-        coordinator?.goVerificationView()
+        NotificationCenter.default.post(name: .notificationVerification, object: nil)
     }
     
     private func setupView() {
-        backgroundColor = .white
+        backgroundColor = UIColor.mainBacgroundColor
         
+        addSubview(catImage)
+        addSubview(secondView)
+        addSubview(warningLabel)
+        addSubview(titleLabel)
         addSubview(phoneNumberTextField)
         addSubview(phoneNumberButton)
         
         NSLayoutConstraint.activate([
-            phoneNumberTextField.topAnchor.constraint(equalTo: topAnchor, constant: 400),
+            
+            catImage.topAnchor.constraint(equalTo: topAnchor, constant: 130),
+            catImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            catImage.heightAnchor.constraint(equalToConstant: 100),
+            catImage.widthAnchor.constraint(equalToConstant: 100),
+            
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 250),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 95),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
+            
+            warningLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            warningLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -350),
+            warningLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+            warningLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            
+            secondView.topAnchor.constraint(equalTo: phoneNumberTextField.topAnchor, constant: -60),
+            secondView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            secondView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            secondView.heightAnchor.constraint(equalToConstant: 750),
+            
             phoneNumberTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             phoneNumberTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             phoneNumberTextField.heightAnchor.constraint(equalToConstant: 40),
@@ -73,7 +131,8 @@ class AuthView: UIView {
             phoneNumberButton.topAnchor.constraint(equalTo: phoneNumberTextField.bottomAnchor, constant: 40),
             phoneNumberButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
             phoneNumberButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
-            phoneNumberButton.heightAnchor.constraint(equalToConstant: 60)
+            phoneNumberButton.heightAnchor.constraint(equalToConstant: 60),
+            phoneNumberButton.bottomAnchor.constraint(equalTo: keyboardLayoutGuide.topAnchor, constant: -100)
         
         ])
         

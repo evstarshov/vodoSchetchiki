@@ -11,63 +11,80 @@ final class MainView: UIView {
     
     //MARK: - Private properties
     
+    private var catImage: UIImageView = {
+        let image = UIImageView()
+        image.layer.masksToBounds = true
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "cat")
+        return image
+    }()
+    
+    private var secondView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 30
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.shadowRadius = 5
+        view.layer.shadowOffset = CGSize(width: 1.3, height: 1.3)
+        view.layer.shadowOpacity = 3
+        view.layer.shadowColor = UIColor.black.cgColor
+        return view
+    }()
+    
     private(set) var hotWaterTextField: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints =  false
-        textField.font = UIFont.systemFont(ofSize: 24)
+        textField.font = UIFont.systemFont(ofSize: 22)
         textField.text = "Горячая вода"
         textField.textColor = .white
         textField.backgroundColor = UIColor.textFieldColor
         textField.layer.cornerRadius = 5
         textField.keyboardType = .phonePad
+        textField.isScrollEnabled = false
         return textField
     }()
     
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Введите показания"
-        label.font = UIFont.systemFont(ofSize: 30)
+        label.text = "Сдайте показания до 20 числа текущего месяца"
+        label.font = UIFont.systemFont(ofSize: 25)
         label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.textColor = .white
+        label.numberOfLines = 0
         return label
     }()
     
     private(set) var coldWaterTextField: UITextView = {
         let textField = UITextView()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.font = UIFont.systemFont(ofSize: 24)
+        textField.font = UIFont.systemFont(ofSize: 22)
         textField.text = "Холодная вода"
         textField.textColor = .white
         textField.backgroundColor = UIColor.textFieldColor
         textField.layer.cornerRadius = 5
         textField.keyboardType = .phonePad
+        textField.isScrollEnabled = false
         return textField
     }()
     
     private var warningLabel: BaseLabel = {
         let label = BaseLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = " Сдайте показания до 20 числа текущего месяца"
+        label.layer.masksToBounds = true
+        label.text = "Введите показания"
         label.font = UIFont.systemFont(ofSize: 25)
         label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.backgroundColor = UIColor.mainColor
         label.textColor = .white
-        label.layer.masksToBounds = true
-        label.layer.cornerRadius = 8
-        label.numberOfLines = 0
+        label.layer.cornerRadius = 14
         return label
     }()
     
-    private(set) var sentIndicationsButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = UIColor.mainColor
-        button.addTarget(self, action: #selector(sendNotification), for: .touchUpInside)
+    private(set) var sentMetersButton: BaseButton = {
+        let button = BaseButton()
         button.setTitle("Отправить", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 16
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isEnabled = false
-        button.alpha = 0.5
+        button.startAnimatingPressActions()
         return button
     }()
     
@@ -76,6 +93,8 @@ final class MainView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        sentMetersButton.addTarget(self, action: #selector(sendNotification), for: .touchUpInside)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -90,24 +109,36 @@ final class MainView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = .white
+        backgroundColor = UIColor.mainBacgroundColor
         
+        addSubview(catImage)
+        addSubview(secondView)
         addSubview(titleLabel)
         addSubview(hotWaterTextField)
         addSubview(coldWaterTextField)
         addSubview(warningLabel)
-        addSubview(sentIndicationsButton)
+        addSubview(sentMetersButton)
         
         NSLayoutConstraint.activate([
+            
+            catImage.topAnchor.constraint(equalTo: topAnchor, constant: 130),
+            catImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            catImage.heightAnchor.constraint(equalToConstant: 100),
+            catImage.widthAnchor.constraint(equalToConstant: 100),
+
+            secondView.topAnchor.constraint(equalTo: warningLabel.topAnchor, constant: -60),
+            secondView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            secondView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            secondView.heightAnchor.constraint(equalToConstant: 750),
+            
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 150),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 350),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             
-            warningLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 100),
             warningLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             warningLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            warningLabel.heightAnchor.constraint(equalToConstant: 100),
+            warningLabel.heightAnchor.constraint(equalToConstant: 60),
             
             hotWaterTextField.topAnchor.constraint(equalTo: warningLabel.bottomAnchor, constant: 30),
             hotWaterTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
@@ -119,10 +150,11 @@ final class MainView: UIView {
             coldWaterTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             coldWaterTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            sentIndicationsButton.topAnchor.constraint(equalTo: coldWaterTextField.bottomAnchor, constant: 40),
-            sentIndicationsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
-            sentIndicationsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
-            sentIndicationsButton.heightAnchor.constraint(equalToConstant: 60)
+            sentMetersButton.topAnchor.constraint(equalTo: coldWaterTextField.bottomAnchor, constant: 40),
+            sentMetersButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
+            sentMetersButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
+            sentMetersButton.bottomAnchor.constraint(equalTo: keyboardLayoutGuide.topAnchor, constant: -20),
+            sentMetersButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
 }

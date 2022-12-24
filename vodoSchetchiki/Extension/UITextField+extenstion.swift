@@ -18,19 +18,5 @@ extension UITextField {
     }
 }
 
-//MARK: - With the help of this class I indent the label
 
-class BaseLabel: UILabel {
-    
-    var sidePadding = CGFloat(10) 
 
-    override func sizeToFit() {
-        super.sizeToFit()
-        bounds.size.width += 2 * sidePadding
-    }
-
-    override func drawText(in rect: CGRect) {
-        super.drawText(in: rect.insetBy(dx: sidePadding, dy: 0))
-        invalidateIntrinsicContentSize()
-    }
-}

@@ -13,7 +13,7 @@ class StatisticFlowLayout: UICollectionViewFlowLayout {
         super.init()
         scrollDirection = .horizontal
         itemSize = CGSize(width: 50, height: 300)
-        minimumLineSpacing = 4
+        minimumLineSpacing = 2
         sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     }
     
