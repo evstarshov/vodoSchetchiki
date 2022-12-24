@@ -36,6 +36,7 @@ class TabCoordinator: NSObject {
     
 }
 
+
 extension TabCoordinator {
     
     private func prepareTabBarController(withTabControllers tabControllers: [UIViewController]) {
@@ -45,7 +46,6 @@ extension TabCoordinator {
         tabBarController.tabBar.isTranslucent = false
         setTabBarAppearance()
         navigationController.viewControllers = [tabBarController]
-        
     }
     
     private func setTabBarAppearance() {
@@ -69,6 +69,7 @@ extension TabCoordinator {
         tabBarController.tabBar.layer.insertSublayer(roundLayer, at: 0)
         tabBarController.tabBar.itemWidth = weight / 5
         tabBarController.tabBar.itemPositioning = .automatic
+        tabBarController.view.backgroundColor = .white
 
         roundLayer.fillColor = UIColor.mainColor.cgColor
         tabBarController.tabBar.tintColor = .tabBarItemAccent
@@ -81,7 +82,7 @@ extension TabCoordinator {
         navController.setNavigationBarHidden(false, animated: false)
 
         navController.tabBarItem = UITabBarItem.init(title: page.pageTitleValue(),
-                                                     image: nil,
+                                                     image: page.pageTitleImage(),
                                                      tag: page.pageOrderNumber())
         
         switch page {
@@ -113,12 +114,11 @@ extension TabCoordinator: Coordinator {
         let controllers: [UINavigationController] = pages.map({ getTabController($0) })
         prepareTabBarController(withTabControllers: controllers)
     }
-    
-    
 }
 
 extension TabCoordinator: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController,
                           didSelect viewController: UIViewController) {
     }
+
 }

@@ -46,6 +46,18 @@ enum TabBarPage {
             return 2
         }
     }
+    
+    func pageTitleImage() -> UIImage {
+        switch self {
+        case .statistics:
+            return UIImage(systemName: "person.fill") ?? UIImage()
+        case .main:
+            return UIImage(systemName: "house.fill") ?? UIImage()
+        case .settings:
+            return UIImage(systemName: "slider.horizontal.3") ?? UIImage()
+            
+        }
+    }
 }
 
 

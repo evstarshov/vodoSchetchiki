@@ -48,6 +48,9 @@ extension FirebaseService: FirebaseServiceProtocol {
     public func saveMeter(coldMeter: String, hotMeter: String) {
         
         let db = configFirebase()
+        
+       
+        
         db.collection("Meters").addDocument(data: [
             "cold_meter" : coldMeter,
             "hot_meter" : hotMeter

@@ -50,12 +50,12 @@ class StatisticsColdWaterCollectionViewCell: UICollectionViewCell {
         coldWaterLabel.text = withModel.coldMeter
         hotWaterLabel.text = withModel.hotMeter
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+        DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             self.coldDynamicConstraints = Double(withModel.coldMeter).map { CGFloat($0) }!
             self.hotDynamicConstraints = Double(withModel.hotMeter).map { CGFloat($0) }!
-            self.coldWaterLabel.heightAnchor.constraint(equalToConstant: ((self.coldDynamicConstraints * 10) + 100)).isActive = true
-            self.hotWaterLabel.heightAnchor.constraint(equalToConstant: ((self.hotDynamicConstraints * 10) + 100)).isActive = true
+            self.coldWaterLabel.heightAnchor.constraint(equalToConstant: ((self.coldDynamicConstraints * 10) + 80)).isActive = true
+            self.hotWaterLabel.heightAnchor.constraint(equalToConstant: ((self.hotDynamicConstraints * 10) + 80)).isActive = true
             self.updateConstraintsIfNeeded()
         }
     }

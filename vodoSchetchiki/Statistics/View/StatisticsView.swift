@@ -41,7 +41,7 @@ class StatisticsView: UIView {
         
         NSLayoutConstraint.activate([
 
-            coldStatisticCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: 200),
+            coldStatisticCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: 100),
             coldStatisticCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             coldStatisticCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             coldStatisticCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -200),
