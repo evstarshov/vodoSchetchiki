@@ -9,9 +9,10 @@ import Foundation
 import FirebaseCore
 import FirebaseDatabase
 import FirebaseFirestore
+import FirebaseAuth
 
 protocol FirebaseServiceProtocol {
-    func getData(collection: String, complition: @escaping([MetersModel]?) -> Void)
+    func getData(complition: @escaping([MetersModel]?) -> Void)
 }
 
 class FirebaseService {
@@ -31,9 +32,10 @@ extension FirebaseService: FirebaseServiceProtocol {
     
     //MARK: - Public function
     
-    public func getData(collection: String, complition: @escaping([MetersModel]?) -> Void) {
+    public func getData(complition: @escaping([MetersModel]?) -> Void) {
         let db = configFirebase()
-        db.collection(collection).getDocuments { (document , error)  in
+        let uid = Auth.auth().currentUser?.uid
+        db.collection(uid ?? "default").getDocuments { (document , error)  in
             guard error == nil else { return }
             var meter:[MetersModel]? = []
             let result = document?.documents.map({$0.data()})
@@ -48,10 +50,9 @@ extension FirebaseService: FirebaseServiceProtocol {
     public func saveMeter(coldMeter: String, hotMeter: String) {
         
         let db = configFirebase()
+        let uid = Auth.auth().currentUser?.uid
         
-       
-        
-        db.collection("Meters").addDocument(data: [
+        db.collection(uid ?? "default").addDocument(data: [
             "cold_meter" : coldMeter,
             "hot_meter" : hotMeter
         ]) { err in

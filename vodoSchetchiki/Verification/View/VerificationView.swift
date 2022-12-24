@@ -81,8 +81,7 @@ class VerificationView: UIView {
     @objc private func goTabBar() {
         guard let code = verificationTextView.text else { return }
         let credentional = PhoneAuthProvider.provider().credential(withVerificationID: verificationID ?? "", verificationCode: code)
-        Auth.auth().signIn(with: credentional) { [ weak self ] _, error in
-            guard let self else { return }
+        Auth.auth().signIn(with: credentional) { _, error in
             if error != nil {
                 print(error ?? "Error")
             } else {

@@ -32,7 +32,7 @@ class StatisticsPresenter: StatisticsPresenterOutput {
     }
     
     func getData() {
-        firebaseService.getData(collection: "Meters") { [weak self] doc in
+        firebaseService.getData() { [weak self] doc in
             guard doc != nil else { print("error"); return }
             guard let self else { return }
             self.meters = doc
