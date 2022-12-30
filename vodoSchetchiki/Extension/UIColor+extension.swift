@@ -15,11 +15,11 @@ extension UIColor {
     }
     
     static var mainColor: UIColor {
-        #colorLiteral(red: 0, green: 0.6992554069, blue: 0.9595077634, alpha: 1)
+        #colorLiteral(red: 0.01863638125, green: 0.5298970938, blue: 0.7271013856, alpha: 1)
     }
     
     static var mainBacgroundColor: UIColor {
-        #colorLiteral(red: 0, green: 0.7333789468, blue: 0.9879058003, alpha: 0.7640688111)
+        #colorLiteral(red: 0.03612776473, green: 0.4055666625, blue: 0.5462898016, alpha: 0.7640688111)
     }
     
     static var tabBarItemLight: UIColor {

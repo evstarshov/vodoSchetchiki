@@ -23,6 +23,11 @@ class StatisticsViewController: UIViewController {
     override func viewDidLoad() {
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        statisticView.getData()
+        
+    }
 
 }
 

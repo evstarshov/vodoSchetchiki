@@ -123,7 +123,8 @@ extension MainViewController: UITextViewDelegate {
 
 extension MainViewController: MainViewControllerDelegate {
     func saveData() {
-        service.saveMeter(coldMeter: mainView.coldWaterTextField.text, hotMeter: mainView.hotWaterTextField.text )
-//        service.saveMeter2(coldMeter: mainView.coldWaterTextField.text, hotMeter: mainView.hotWaterTextField.text)
+        service.saveMeter(coldMeter: mainView.coldWaterTextField.text,
+                          hotMeter: mainView.hotWaterTextField.text)
+        
     }
 }

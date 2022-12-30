@@ -29,7 +29,6 @@
 		04B30036294658E300A27A01 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B30035294658E300A27A01 /* AuthView.swift */; };
 		04B30038294658EA00A27A01 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B30037294658EA00A27A01 /* VerificationView.swift */; };
 		04C6ED2E294F4C090014B804 /* MailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6ED2D294F4C090014B804 /* MailViewController.swift */; };
-		04DAA91F29504D3700E175DA /* StatisticsPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAA91E29504D3700E175DA /* StatisticsPresentor.swift */; };
 		04DAA92129504EF200E175DA /* MeterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAA92029504EF200E175DA /* MeterModel.swift */; };
 		04DAA92329506CB300E175DA /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAA92229506CB300E175DA /* FirebaseService.swift */; };
 		04DAA928295329DE00E175DA /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAA927295329DE00E175DA /* StatisticsViewModel.swift */; };
@@ -92,7 +91,6 @@
 		04B30035294658E300A27A01 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		04B30037294658EA00A27A01 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		04C6ED2D294F4C090014B804 /* MailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailViewController.swift; sourceTree = "<group>"; };
-		04DAA91E29504D3700E175DA /* StatisticsPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsPresentor.swift; sourceTree = "<group>"; };
 		04DAA92029504EF200E175DA /* MeterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterModel.swift; sourceTree = "<group>"; };
 		04DAA92229506CB300E175DA /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		04DAA927295329DE00E175DA /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
@@ -247,8 +245,6 @@
 				04DAA9252953297D00E175DA /* ViewModel */,
 				040BC9882947C228007B88FE /* CollectionView */,
 				040BC9892947C252007B88FE /* CollectionViewCell */,
-				0410A75E292573010069A28B /* Presenter */,
-				04DAA926295329A500E175DA /* Model */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -259,14 +255,6 @@
 				0447D7F8293FCB8400DA76F7 /* StatisticsViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		0410A75E292573010069A28B /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				04DAA91E29504D3700E175DA /* StatisticsPresentor.swift */,
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		0410A75F2925730A0069A28B /* View */ = {
@@ -427,6 +415,7 @@
 		3A63884429215E0800A576A3 /* vodoSchetchiki */ = {
 			isa = PBXGroup;
 			children = (
+				04DAA926295329A500E175DA /* Model */,
 				04DAA9242950D08B00E175DA /* Service */,
 				049341622948B3CF00BDAC58 /* BaseElementsUI */,
 				0410A767292584740069A28B /* Extension */,
@@ -737,7 +726,6 @@
 				3A399D46294F27D200592F90 /* LoginCoordinator.swift in Sources */,
 				040BC9822947AC3B007B88FE /* StatisticFlowLayout.swift in Sources */,
 				042B019A29255599003EBBF5 /* Coordinator.swift in Sources */,
-				04DAA91F29504D3700E175DA /* StatisticsPresentor.swift in Sources */,
 				04DAA92129504EF200E175DA /* MeterModel.swift in Sources */,
 				04A84B16293C90BC001C3FF8 /* MainView.swift in Sources */,
 				040BC98D2947C3D7007B88FE /* StatisticsCollectionView.swift in Sources */,

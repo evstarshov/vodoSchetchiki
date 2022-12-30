@@ -18,7 +18,7 @@ class StatisticsViewModel {
     var meters: [MetersModel] = []
     
     func getData(success: @escaping ([MetersModel]) -> Void, failture: @escaping (NSError) -> Void) {
-        servise.getData() { [weak self] data in
+        servise.getDataMeters() { [weak self] data in
             guard let self else { return }
             self.meters = data ?? []
             success(data ?? [])

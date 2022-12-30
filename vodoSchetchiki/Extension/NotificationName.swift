@@ -12,6 +12,8 @@ extension Notification.Name {
     static let notificationVerification = Notification.Name(rawValue: "Verification")
     static let notificationTabBar = Notification.Name(rawValue: "TabBar")
     static let notificationLogOut = Notification.Name(rawValue: "GoAuth")
+    static let saveUserData = Notification.Name(rawValue: "SaveUserData")
+
 
     
 }
