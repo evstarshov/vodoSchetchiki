@@ -17,9 +17,9 @@
 		0410A769292584A70069A28B /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410A768292584A70069A28B /* UIColor+extension.swift */; };
 		0410A76B29258F630069A28B /* UITextField+extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0410A76A29258F630069A28B /* UITextField+extenstion.swift */; };
 		042B01982925558F003EBBF5 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B01972925558F003EBBF5 /* CoordinatorProtocol.swift */; };
-		042B019A29255599003EBBF5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B019929255599003EBBF5 /* Coordinator.swift */; };
 		0447D7F7293DED8800DA76F7 /* UIViewController+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447D7F6293DED8800DA76F7 /* UIViewController+extention.swift */; };
 		0447D7F9293FCB8400DA76F7 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0447D7F8293FCB8400DA76F7 /* StatisticsViewController.swift */; };
+		046247AA29635F4000BF6C0D /* XAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046247A929635F4000BF6C0D /* XAxisView.swift */; };
 		04643AA9294E42350079B176 /* UIButton+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04643AA8294E42350079B176 /* UIButton+extension.swift */; };
 		04643AAB294E43F60079B176 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04643AAA294E43F60079B176 /* BaseButton.swift */; };
 		049341642948B3FA00BDAC58 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049341632948B3FA00BDAC58 /* BaseLabel.swift */; };
@@ -28,10 +28,13 @@
 		04B30034294658D500A27A01 /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B30033294658D500A27A01 /* VerificationViewController.swift */; };
 		04B30036294658E300A27A01 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B30035294658E300A27A01 /* AuthView.swift */; };
 		04B30038294658EA00A27A01 /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B30037294658EA00A27A01 /* VerificationView.swift */; };
+		04C4872329636F4B00F536D0 /* YAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4872229636F4B00F536D0 /* YAxisView.swift */; };
+		04C4872529656F9300F536D0 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4872429656F9300F536D0 /* ChartView.swift */; };
 		04C6ED2E294F4C090014B804 /* MailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C6ED2D294F4C090014B804 /* MailViewController.swift */; };
 		04DAA92129504EF200E175DA /* MeterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAA92029504EF200E175DA /* MeterModel.swift */; };
 		04DAA92329506CB300E175DA /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAA92229506CB300E175DA /* FirebaseService.swift */; };
 		04DAA928295329DE00E175DA /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAA927295329DE00E175DA /* StatisticsViewModel.swift */; };
+		04F4D8882968A494002CEAFA /* BaseStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D8872968A494002CEAFA /* BaseStatisticsView.swift */; };
 		19FC43F1D9DFDD34E9402B39 /* Pods_vodoSchetchikiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BDE7ADD9026A05E01E1222 /* Pods_vodoSchetchikiTests.framework */; };
 		3A399D44294F243C00592F90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A399D43294F243C00592F90 /* GoogleService-Info.plist */; };
 		3A399D46294F27D200592F90 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A399D45294F27D200592F90 /* LoginCoordinator.swift */; };
@@ -78,9 +81,9 @@
 		0410A768292584A70069A28B /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		0410A76A29258F630069A28B /* UITextField+extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+extenstion.swift"; sourceTree = "<group>"; };
 		042B01972925558F003EBBF5 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
-		042B019929255599003EBBF5 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0447D7F6293DED8800DA76F7 /* UIViewController+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extention.swift"; sourceTree = "<group>"; };
 		0447D7F8293FCB8400DA76F7 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		046247A929635F4000BF6C0D /* XAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAxisView.swift; sourceTree = "<group>"; };
 		04643AA8294E42350079B176 /* UIButton+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extension.swift"; sourceTree = "<group>"; };
 		04643AAA294E43F60079B176 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		049341632948B3FA00BDAC58 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
@@ -90,10 +93,13 @@
 		04B30033294658D500A27A01 /* VerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewController.swift; sourceTree = "<group>"; };
 		04B30035294658E300A27A01 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		04B30037294658EA00A27A01 /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
+		04C4872229636F4B00F536D0 /* YAxisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAxisView.swift; sourceTree = "<group>"; };
+		04C4872429656F9300F536D0 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		04C6ED2D294F4C090014B804 /* MailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailViewController.swift; sourceTree = "<group>"; };
 		04DAA92029504EF200E175DA /* MeterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterModel.swift; sourceTree = "<group>"; };
 		04DAA92229506CB300E175DA /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		04DAA927295329DE00E175DA /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
+		04F4D8872968A494002CEAFA /* BaseStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStatisticsView.swift; sourceTree = "<group>"; };
 		07BDE7ADD9026A05E01E1222 /* Pods_vodoSchetchikiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vodoSchetchikiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A399D43294F243C00592F90 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A399D45294F27D200592F90 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
@@ -261,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				040BC98A2947C2A6007B88FE /* StatisticsView.swift */,
+				04C487262965721B00F536D0 /* Subviews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,7 +323,6 @@
 			isa = PBXGroup;
 			children = (
 				042B01972925558F003EBBF5 /* CoordinatorProtocol.swift */,
-				042B019929255599003EBBF5 /* Coordinator.swift */,
 				3A399D45294F27D200592F90 /* LoginCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -336,6 +342,7 @@
 			children = (
 				049341632948B3FA00BDAC58 /* BaseLabel.swift */,
 				04643AAA294E43F60079B176 /* BaseButton.swift */,
+				04F4D8872968A494002CEAFA /* BaseStatisticsView.swift */,
 			);
 			path = BaseElementsUI;
 			sourceTree = "<group>";
@@ -363,6 +370,16 @@
 				04B30035294658E300A27A01 /* AuthView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		04C487262965721B00F536D0 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				04C4872229636F4B00F536D0 /* YAxisView.swift */,
+				046247A929635F4000BF6C0D /* XAxisView.swift */,
+				04C4872429656F9300F536D0 /* ChartView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		04DAA9242950D08B00E175DA /* Service */ = {
@@ -704,6 +721,7 @@
 				3A63884A29215E0800A576A3 /* MainViewController.swift in Sources */,
 				04643AA9294E42350079B176 /* UIButton+extension.swift in Sources */,
 				0410A763292573440069A28B /* StatisticsColdWaterCollectionViewCell.swift in Sources */,
+				04C4872529656F9300F536D0 /* ChartView.swift in Sources */,
 				04DAA928295329DE00E175DA /* StatisticsViewModel.swift in Sources */,
 				0447D7F9293FCB8400DA76F7 /* StatisticsViewController.swift in Sources */,
 				04B30034294658D500A27A01 /* VerificationViewController.swift in Sources */,
@@ -715,6 +733,8 @@
 				0410A7662925739B0069A28B /* MainTabBarController.swift in Sources */,
 				04DAA92329506CB300E175DA /* FirebaseService.swift in Sources */,
 				3A399D48294F2B1A00592F90 /* AppCoordinator.swift in Sources */,
+				04F4D8882968A494002CEAFA /* BaseStatisticsView.swift in Sources */,
+				046247AA29635F4000BF6C0D /* XAxisView.swift in Sources */,
 				3ACA2822293DE632009251B8 /* NotificationName.swift in Sources */,
 				04643AAB294E43F60079B176 /* BaseButton.swift in Sources */,
 				0410A769292584A70069A28B /* UIColor+extension.swift in Sources */,
@@ -725,7 +745,6 @@
 				04C6ED2E294F4C090014B804 /* MailViewController.swift in Sources */,
 				3A399D46294F27D200592F90 /* LoginCoordinator.swift in Sources */,
 				040BC9822947AC3B007B88FE /* StatisticFlowLayout.swift in Sources */,
-				042B019A29255599003EBBF5 /* Coordinator.swift in Sources */,
 				04DAA92129504EF200E175DA /* MeterModel.swift in Sources */,
 				04A84B16293C90BC001C3FF8 /* MainView.swift in Sources */,
 				040BC98D2947C3D7007B88FE /* StatisticsCollectionView.swift in Sources */,
@@ -733,6 +752,7 @@
 				3A63884629215E0800A576A3 /* AppDelegate.swift in Sources */,
 				04B300302946511900A27A01 /* AuthViewController.swift in Sources */,
 				3A63884829215E0800A576A3 /* SceneDelegate.swift in Sources */,
+				04C4872329636F4B00F536D0 /* YAxisView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -40,7 +40,7 @@ extension FirebaseService: FirebaseServiceProtocol {
             var meter:[MetersModel]? = []
             let result = document?.documents.map({$0.data()})
             for meters in result! {
-                let array = MetersModel(coldMeter: meters["cold_meter"] as? String ?? "nil",
+                let array = MetersModel(coldMeter: meters["cold_meter"] as? String ?? "0",
                                         hotMeter: meters["hot_meter"] as? String ?? "nil")
                 meter?.append(array)
             }

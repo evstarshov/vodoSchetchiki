@@ -15,11 +15,11 @@ extension UIColor {
     }
     
     static var mainColor: UIColor {
-        #colorLiteral(red: 0.01863638125, green: 0.5298970938, blue: 0.7271013856, alpha: 1)
+        #colorLiteral(red: 0.04012814164, green: 0.3788183331, blue: 0.5197817683, alpha: 0.9164170246)
     }
     
     static var mainBacgroundColor: UIColor {
-        #colorLiteral(red: 0.03612776473, green: 0.4055666625, blue: 0.5462898016, alpha: 0.7640688111)
+        #colorLiteral(red: 0.876829803, green: 0.8791334033, blue: 0.8660231829, alpha: 0.7640688111)
     }
     
     static var tabBarItemLight: UIColor {
@@ -27,11 +27,11 @@ extension UIColor {
     }
     
     static var maimViewGradientStartColor: UIColor {
-        #colorLiteral(red: 0, green: 0.7352497578, blue: 1, alpha: 0.8512354221)
+        #colorLiteral(red: 0.5138143301, green: 0.545912683, blue: 0.5193609595, alpha: 0.5246379619)
     }
     
     static var mainViewGradientEndColor: UIColor {
-        #colorLiteral(red: 0.4803644419, green: 0, blue: 1, alpha: 0.8510733883)
+        #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
     static var labelColdWater: UIColor {
@@ -44,6 +44,10 @@ extension UIColor {
     
     static var textFieldColor: UIColor {
         #colorLiteral(red: 0.3448092937, green: 0.3448093534, blue: 0.3448092937, alpha: 0.2022972885)
+    }
+    
+    static var separatop: UIColor {
+        #colorLiteral(red: 0.6613870263, green: 0.6613869667, blue: 0.6613870263, alpha: 0.64)
     }
 }
 

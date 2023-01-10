@@ -17,7 +17,6 @@ class MainViewController: UIViewController {
     private var mainView = MainView()
     let service = FirebaseService()
 
-    
     //MARK: - Constraction
     
     override func viewDidLoad() {
@@ -36,8 +35,8 @@ class MainViewController: UIViewController {
     //MARK: - private functions
 
     private func delegateTextField() {
-        mainView.coldWaterTextField.delegate = self
         mainView.hotWaterTextField.delegate = self
+        mainView.coldWaterTextField.delegate = self
     }
     
     @objc private func sendMail(notification: Notification) {
@@ -89,7 +88,7 @@ extension MainViewController: UITextViewDelegate {
         }
 
         func textViewDidChange(_ textView: UITextView) {
-            if mainView.hotWaterTextField.hasText && mainView.coldWaterTextField.hasText {
+            if mainView.coldWaterTextField.hasText && mainView.hotWaterTextField.hasText {
                 mainView.sentMetersButton.isEnabled = true
                 mainView.sentMetersButton.alpha = 1
                 mainView.sentMetersButton.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
@@ -103,19 +102,19 @@ extension MainViewController: UITextViewDelegate {
         }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if mainView.hotWaterTextField.textColor == .white && mainView.coldWaterTextField.textColor == .white {
-            mainView.hotWaterTextField.text = ""
+        if mainView.coldWaterTextField.textColor == .white && mainView.hotWaterTextField.textColor == .white {
             mainView.coldWaterTextField.text = ""
-            mainView.coldWaterTextField.textColor = .systemGray
+            mainView.hotWaterTextField.text = ""
             mainView.hotWaterTextField.textColor = .systemGray
+            mainView.coldWaterTextField.textColor = .systemGray
         }
     }
     func textViewDidEndEditing(_ textView: UITextView) {
-        if mainView.hotWaterTextField.text == "" && mainView.coldWaterTextField.text == "" {
-            mainView.hotWaterTextField.text = "Горячая вода"
-            mainView.coldWaterTextField.text = "Холодная вода"
-            mainView.coldWaterTextField.textColor = .white
+        if mainView.coldWaterTextField.text == "" && mainView.hotWaterTextField.text == "" {
+            mainView.coldWaterTextField.text = "Горячая вода"
+            mainView.hotWaterTextField.text = "Холодная вода"
             mainView.hotWaterTextField.textColor = .white
+            mainView.coldWaterTextField.textColor = .white
         }
         
     }

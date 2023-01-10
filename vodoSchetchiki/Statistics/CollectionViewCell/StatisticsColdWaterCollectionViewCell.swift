@@ -47,7 +47,7 @@ class StatisticsColdWaterCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(_ withModel: MetersModel) {
-        coldWaterLabel.text = withModel.coldMeter
+        coldWaterLabel.text = String(withModel.coldMeter)
         hotWaterLabel.text = withModel.hotMeter
         
         DispatchQueue.main.async { [weak self] in
@@ -55,8 +55,8 @@ class StatisticsColdWaterCollectionViewCell: UICollectionViewCell {
             self.coldDynamicConstraints = Double(withModel.coldMeter).map { CGFloat($0) }!
             self.hotDynamicConstraints = Double(withModel.hotMeter).map { CGFloat($0) }!
             
-            self.coldWaterLabel.heightAnchor.constraint(equalToConstant: ((self.coldDynamicConstraints * 10) + 80)).isActive = true
-            self.hotWaterLabel.heightAnchor.constraint(equalToConstant: ((self.hotDynamicConstraints * 10) + 80)).isActive = true
+            self.coldWaterLabel.heightAnchor.constraint(equalToConstant: ((self.coldDynamicConstraints * 5) )).isActive = true
+            self.hotWaterLabel.heightAnchor.constraint(equalToConstant: ((self.hotDynamicConstraints * 5) )).isActive = true
 
             self.updateConstraintsIfNeeded()
         }

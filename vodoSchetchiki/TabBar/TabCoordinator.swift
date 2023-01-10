@@ -119,6 +119,19 @@ extension TabCoordinator: Coordinator {
 extension TabCoordinator: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController,
                           didSelect viewController: UIViewController) {
+    
     }
-
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        guard let tabViewControllers = tabBarController.viewControllers,
+              let toIndex = tabViewControllers.firstIndex(of: viewController)
+        else {
+            return false
+        }
+        animateToTab(toIndex: toIndex)
+        return true
+    }
+    
+    func animateToTab(toIndex: Int) {
+        
+    }
 }
