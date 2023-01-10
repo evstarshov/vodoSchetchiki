@@ -18,11 +18,19 @@ class SettingsViewController: UIViewController {
     
     private let settingView = SettingsView()
     private weak var coordinator: SettingsViewControllerDelegate?
+    private var service = FirebaseService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeDown()
-        NotificationCenter.default.addObserver(self, selector: #selector(logOut), name: .notificationLogOut, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(logOut),
+                                               name: .notificationLogOut,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(saveUserData),
+                                               name: .saveUserData,
+                                               object: nil)
     }
     
     override func loadView() {
@@ -40,6 +48,14 @@ class SettingsViewController: UIViewController {
     
     @objc private func hideKeyboardOnSwipeDown() {
         view.endEditing(true)
+    }
+        
+    @objc private func saveUserData(notification: Notification) {
+
+        service.saveUserData(name: settingView.usernameTextField.text ?? "deaful",
+                             secondName: settingView.usersLastNameTextField.text ?? "deaful",
+                             flatNumber: settingView.apartmentNumberTextField.text ?? "deaful",
+                             address: settingView.apartmentAddressTextField.text ?? "deaful")
     }
     
     @objc private func logOut(notification: Notification) {

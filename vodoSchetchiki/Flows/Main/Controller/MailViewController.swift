@@ -32,8 +32,11 @@ class MailViewController: MFMailComposeViewController {
 
 extension MailViewController: MFMailComposeViewControllerDelegate {
     
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        
+    //MARK: Public function
+    
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult,
+                               error: Error?) {
         switch result {
         case .sent:
             dismiss(animated: true)

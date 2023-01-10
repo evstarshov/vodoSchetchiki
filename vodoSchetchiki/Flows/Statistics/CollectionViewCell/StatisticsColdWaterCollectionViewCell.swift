@@ -47,15 +47,17 @@ class StatisticsColdWaterCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(_ withModel: MetersModel) {
-        coldWaterLabel.text = withModel.coldMeter
+        coldWaterLabel.text = String(withModel.coldMeter)
         hotWaterLabel.text = withModel.hotMeter
         
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             self.coldDynamicConstraints = Double(withModel.coldMeter).map { CGFloat($0) }!
             self.hotDynamicConstraints = Double(withModel.hotMeter).map { CGFloat($0) }!
-            self.coldWaterLabel.heightAnchor.constraint(equalToConstant: ((self.coldDynamicConstraints * 10) + 80)).isActive = true
-            self.hotWaterLabel.heightAnchor.constraint(equalToConstant: ((self.hotDynamicConstraints * 10) + 80)).isActive = true
+            
+            self.coldWaterLabel.heightAnchor.constraint(equalToConstant: ((self.coldDynamicConstraints * 5) )).isActive = true
+            self.hotWaterLabel.heightAnchor.constraint(equalToConstant: ((self.hotDynamicConstraints * 5) )).isActive = true
+
             self.updateConstraintsIfNeeded()
         }
     }
@@ -67,6 +69,8 @@ class StatisticsColdWaterCollectionViewCell: UICollectionViewCell {
         addSubview(coldWaterLabel)
         addSubview(hotWaterLabel)
         
+        
+        
         coldWaterLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
         coldWaterLabel.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -5).isActive = true
         coldWaterLabel.bottomAnchor.constraint(equalTo: centerYAnchor).isActive = true
@@ -74,11 +78,7 @@ class StatisticsColdWaterCollectionViewCell: UICollectionViewCell {
         hotWaterLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
         hotWaterLabel.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -5).isActive = true
         hotWaterLabel.topAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        
-        
-        
-        
-        
+    
     }
 }
 

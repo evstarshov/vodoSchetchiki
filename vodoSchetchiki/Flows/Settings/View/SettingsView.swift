@@ -34,7 +34,7 @@ class SettingsView: UIView {
         return image
     }()
     
-    private var usernameTextField: UITextField = {
+    private(set) var usernameTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.indent(size: 20)
@@ -45,7 +45,7 @@ class SettingsView: UIView {
         return textField
     }()
     
-    private var usersLastNameTextField: UITextField = {
+    private(set) var usersLastNameTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.indent(size: 20)
@@ -56,7 +56,7 @@ class SettingsView: UIView {
         return textField
     }()
     
-    private var apartmentAddressTextField: UITextField = {
+    private(set) var apartmentAddressTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.indent(size: 20)
@@ -67,7 +67,7 @@ class SettingsView: UIView {
         return textField
     }()
     
-    private var apartmentNumberTextField: UITextField = {
+    private(set) var apartmentNumberTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.indent(size: 20)
@@ -82,6 +82,7 @@ class SettingsView: UIView {
         let button = BaseButton()
         button.setTitle("Сохранить", for: .normal)
         button.startAnimatingPressActions()
+        button.isEnabled = true
         return button
     }()
     
@@ -90,7 +91,6 @@ class SettingsView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "ExitImage"), for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.addTarget(self, action: #selector(logOut), for: .touchUpInside)
         button.point(inside: CGPoint(x: 100, y: 100), with: .none)
         return button
     }()
@@ -100,6 +100,8 @@ class SettingsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        saveSettingButton.addTarget(self, action: #selector(saveUserData), for: .touchUpInside)
+        exitButton.addTarget(self, action: #selector(logOut), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -111,6 +113,10 @@ class SettingsView: UIView {
     
     @objc private func logOut() {
         NotificationCenter.default.post(name: .notificationLogOut, object: nil)
+    }
+    
+    @objc private func saveUserData() {
+        NotificationCenter.default.post(name: .saveUserData, object: nil)
     }
     
     private func setupView() {
