@@ -1,0 +1,64 @@
+//
+//  SettingsViewController.swift
+//  vodoSchetchiki
+//
+//  Created by Mac on 16.11.2022.
+//
+
+import UIKit
+import FirebaseAuth
+
+protocol SettingsViewControllerDelegate: AnyObject {
+    func deinitUser(from: SettingsViewController)
+}
+
+class SettingsViewController: UIViewController {
+    
+    //MARK: - private properties
+    
+    private let settingView = SettingsView()
+    private weak var coordinator: SettingsViewControllerDelegate?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        swipeDown()
+        NotificationCenter.default.addObserver(self, selector: #selector(logOut), name: .notificationLogOut, object: nil)
+    }
+    
+    override func loadView() {
+        view = settingView
+    }
+    
+    //MARK: - Private function
+    
+    private func swipeDown() {
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.hideKeyboardOnSwipeDown))
+        swipeDown.delegate = self
+        swipeDown.direction =  UISwipeGestureRecognizer.Direction.down
+        self.settingView.addGestureRecognizer(swipeDown)
+    }
+    
+    @objc private func hideKeyboardOnSwipeDown() {
+        view.endEditing(true)
+    }
+    
+    @objc private func logOut(notification: Notification) {
+        do {
+            try Auth.auth().signOut()
+            errorAlert(title: "Вы вышли из аккаунта", message: "")
+        } catch {
+            errorAlert(title: "Error", message: "Что то пошло не так")
+        }
+    }
+}
+
+//MARK: - Extension
+
+extension SettingsViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return true
+    }
+}
+
+
+
