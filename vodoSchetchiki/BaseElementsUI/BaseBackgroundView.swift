@@ -1,25 +1,16 @@
 //
-//  BaseView.swift
+//  BaseBackgroundView.swift
 //  vodoSchetchiki
 //
-//  Created by Mac on 06.01.2023.
+//  Created by Mac on 10.01.2023.
 //
 
 import UIKit
 
-private enum Constants {
-    static let cornerRadiusSize = CGSize(width: 10.0, height: 10.0)
-    static let margin: CGFloat = 20.0
-    static let topBorder: CGFloat = 60
-    static let bottomBorder: CGFloat = 50
-    static let colorAlpha: CGFloat = 0.3
-    static let circleDiameter: CGFloat = 5.0
-}
-
-class BaseStatisticsView: UIView {
+class BaseBackgroundView: UIView {
     
-    private let startColor: UIColor = .statisticsViewGradientStartColor
-    private let endColor: UIColor = .statisticsViewGradientEndColor
+    private let startColor: UIColor = .mainGradientStart
+    private let endColor: UIColor = .mainGradientFinish
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,17 +23,10 @@ class BaseStatisticsView: UIView {
     }
 }
 
-extension BaseStatisticsView {
+extension BaseBackgroundView {
     
     override func draw(_ rect: CGRect) {
-        
-        let path = UIBezierPath(
-          roundedRect: rect,
-          byRoundingCorners: .allCorners,
-          cornerRadii: Constants.cornerRadiusSize
-        )
-        path.addClip()
-        
+
         guard let context = UIGraphicsGetCurrentContext() else {
             return
         }
@@ -58,7 +42,6 @@ extension BaseStatisticsView {
             return
         }
         
-        
         let startPoint = CGPoint.zero
         let endPoint = CGPoint(x: 0, y: 500)
         context.drawLinearGradient(
@@ -69,3 +52,4 @@ extension BaseStatisticsView {
         )
     }
 }
+

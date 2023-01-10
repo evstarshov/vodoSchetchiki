@@ -26,11 +26,11 @@ extension UIColor {
         #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
-    static var maimViewGradientStartColor: UIColor {
+    static var statisticsViewGradientStartColor: UIColor {
         #colorLiteral(red: 0.5138143301, green: 0.545912683, blue: 0.5193609595, alpha: 0.5246379619)
     }
     
-    static var mainViewGradientEndColor: UIColor {
+    static var statisticsViewGradientEndColor: UIColor {
         #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
@@ -48,6 +48,14 @@ extension UIColor {
     
     static var separatop: UIColor {
         #colorLiteral(red: 0.6613870263, green: 0.6613869667, blue: 0.6613870263, alpha: 0.64)
+    }
+    
+    static var mainGradientStart: UIColor {
+        #colorLiteral(red: 0.3585212231, green: 0, blue: 0.2415834367, alpha: 0.3568202427)
+    }
+    
+    static var mainGradientFinish: UIColor {
+        #colorLiteral(red: 0.05223130435, green: 0.08233421296, blue: 0.5397108197, alpha: 0.36)
     }
 }
 

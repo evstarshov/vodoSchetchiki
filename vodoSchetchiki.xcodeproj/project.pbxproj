@@ -34,6 +34,7 @@
 		04DAA92129504EF200E175DA /* MeterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAA92029504EF200E175DA /* MeterModel.swift */; };
 		04DAA92329506CB300E175DA /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAA92229506CB300E175DA /* FirebaseService.swift */; };
 		04DAA928295329DE00E175DA /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DAA927295329DE00E175DA /* StatisticsViewModel.swift */; };
+		04E34494296DCD3900AB82B6 /* BaseBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E34493296DCD3800AB82B6 /* BaseBackgroundView.swift */; };
 		04F4D8882968A494002CEAFA /* BaseStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D8872968A494002CEAFA /* BaseStatisticsView.swift */; };
 		19FC43F1D9DFDD34E9402B39 /* Pods_vodoSchetchikiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07BDE7ADD9026A05E01E1222 /* Pods_vodoSchetchikiTests.framework */; };
 		3A399D44294F243C00592F90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A399D43294F243C00592F90 /* GoogleService-Info.plist */; };
@@ -99,6 +100,7 @@
 		04DAA92029504EF200E175DA /* MeterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterModel.swift; sourceTree = "<group>"; };
 		04DAA92229506CB300E175DA /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		04DAA927295329DE00E175DA /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
+		04E34493296DCD3800AB82B6 /* BaseBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBackgroundView.swift; sourceTree = "<group>"; };
 		04F4D8872968A494002CEAFA /* BaseStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStatisticsView.swift; sourceTree = "<group>"; };
 		07BDE7ADD9026A05E01E1222 /* Pods_vodoSchetchikiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vodoSchetchikiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A399D43294F243C00592F90 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				049341632948B3FA00BDAC58 /* BaseLabel.swift */,
 				04643AAA294E43F60079B176 /* BaseButton.swift */,
 				04F4D8872968A494002CEAFA /* BaseStatisticsView.swift */,
+				04E34493296DCD3800AB82B6 /* BaseBackgroundView.swift */,
 			);
 			path = BaseElementsUI;
 			sourceTree = "<group>";
@@ -406,6 +409,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		04E34495296DE25400AB82B6 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				042B01912925543F003EBBF5 /* Main */,
+				0410A75429256E290069A28B /* Settings */,
+				0410A75C292572D40069A28B /* Statistics */,
+				040BC9852947B9F8007B88FE /* Verification */,
+				04B3002C294650A200A27A01 /* Auth */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
 		3A63883929215E0800A576A3 = {
 			isa = PBXGroup;
 			children = (
@@ -432,17 +447,13 @@
 		3A63884429215E0800A576A3 /* vodoSchetchiki */ = {
 			isa = PBXGroup;
 			children = (
+				04E34495296DE25400AB82B6 /* Flows */,
+				0410A764292573640069A28B /* TabBar */,
 				04DAA926295329A500E175DA /* Model */,
 				04DAA9242950D08B00E175DA /* Service */,
 				049341622948B3CF00BDAC58 /* BaseElementsUI */,
 				0410A767292584740069A28B /* Extension */,
 				042B019629255555003EBBF5 /* Coordinator */,
-				0410A764292573640069A28B /* TabBar */,
-				04B3002C294650A200A27A01 /* Auth */,
-				040BC9852947B9F8007B88FE /* Verification */,
-				0410A75C292572D40069A28B /* Statistics */,
-				0410A75429256E290069A28B /* Settings */,
-				042B01912925543F003EBBF5 /* Main */,
 				3A63884529215E0800A576A3 /* AppDelegate.swift */,
 				3A63884729215E0800A576A3 /* SceneDelegate.swift */,
 				3A63884E29215E0A00A576A3 /* Assets.xcassets */,
@@ -719,6 +730,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A63884A29215E0800A576A3 /* MainViewController.swift in Sources */,
+				04E34494296DCD3900AB82B6 /* BaseBackgroundView.swift in Sources */,
 				04643AA9294E42350079B176 /* UIButton+extension.swift in Sources */,
 				0410A763292573440069A28B /* StatisticsColdWaterCollectionViewCell.swift in Sources */,
 				04C4872529656F9300F536D0 /* ChartView.swift in Sources */,
